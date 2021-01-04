@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "poetry-core",
+    "name": "mingw-w64-python-poetry-core"
+}

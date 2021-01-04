@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pluggy",
+    "name": "mingw-w64-python-pluggy"
+}

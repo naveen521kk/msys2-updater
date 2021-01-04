@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "lark-parser",
+    "name": "mingw-w64-python-lark-parser"
+}

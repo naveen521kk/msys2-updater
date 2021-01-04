@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "google-cloud-core",
+    "name": "mingw-w64-python-google-cloud-core"
+}

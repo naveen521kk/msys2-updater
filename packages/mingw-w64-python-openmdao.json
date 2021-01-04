@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "openmdao",
+    "name": "mingw-w64-python-openmdao"
+}

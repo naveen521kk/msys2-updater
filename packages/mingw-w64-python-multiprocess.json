@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "multiprocess",
+    "name": "mingw-w64-python-multiprocess"
+}

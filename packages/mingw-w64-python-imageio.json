@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "imageio",
+    "name": "mingw-w64-python-imageio"
+}

@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "sphinx",
+    "name": "mingw-w64-python-sphinx"
+}

@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "chardet",
+    "name": "mingw-w64-python-chardet"
+}

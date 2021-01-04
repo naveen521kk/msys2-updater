@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "service_identity",
+    "name": "mingw-w64-python-service_identity"
+}

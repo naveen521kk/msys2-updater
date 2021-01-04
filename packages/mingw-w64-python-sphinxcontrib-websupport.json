@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "sphinxcontrib-websupport",
+    "name": "mingw-w64-python-sphinxcontrib-websupport"
+}

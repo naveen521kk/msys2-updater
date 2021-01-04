@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "genty",
+    "name": "mingw-w64-python-genty"
+}

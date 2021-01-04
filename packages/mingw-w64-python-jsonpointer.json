@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "jsonpointer",
+    "name": "mingw-w64-python-jsonpointer"
+}

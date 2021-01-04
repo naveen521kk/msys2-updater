@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "rencode",
+    "name": "mingw-w64-python-rencode"
+}

@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "colour",
+    "name": "mingw-w64-python-colour"
+}

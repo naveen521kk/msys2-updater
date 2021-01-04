@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "keras_preprocessing",
+    "name": "mingw-w64-python-keras_preprocessing"
+}

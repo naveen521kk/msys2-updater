@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "scikit-image",
+    "name": "mingw-w64-python-scikit-image"
+}

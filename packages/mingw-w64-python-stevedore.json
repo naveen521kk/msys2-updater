@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "stevedore",
+    "name": "mingw-w64-python-stevedore"
+}

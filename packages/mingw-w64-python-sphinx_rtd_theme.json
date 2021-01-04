@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "sphinx_rtd_theme",
+    "name": "mingw-w64-python-sphinx_rtd_theme"
+}

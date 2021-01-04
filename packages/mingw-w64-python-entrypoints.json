@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "entrypoints",
+    "name": "mingw-w64-python-entrypoints"
+}

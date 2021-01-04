@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "regex",
+    "name": "mingw-w64-python-regex"
+}

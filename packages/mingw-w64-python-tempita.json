@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "tempita",
+    "name": "mingw-w64-python-tempita"
+}

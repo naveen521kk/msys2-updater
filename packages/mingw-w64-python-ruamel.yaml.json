@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "ruamel.yaml",
+    "name": "mingw-w64-python-ruamel.yaml"
+}

@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "astor",
+    "name": "mingw-w64-python-astor"
+}

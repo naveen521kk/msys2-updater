@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pytest-expect",
+    "name": "mingw-w64-python-pytest-expect"
+}

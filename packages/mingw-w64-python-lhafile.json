@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "lhafile",
+    "name": "mingw-w64-python-lhafile"
+}

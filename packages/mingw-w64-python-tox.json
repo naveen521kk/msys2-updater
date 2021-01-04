@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "tox",
+    "name": "mingw-w64-python-tox"
+}

@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "xlwt",
+    "name": "mingw-w64-python-xlwt"
+}

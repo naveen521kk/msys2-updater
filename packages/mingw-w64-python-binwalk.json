@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "binwalk",
+    "name": "mingw-w64-python-binwalk"
+}

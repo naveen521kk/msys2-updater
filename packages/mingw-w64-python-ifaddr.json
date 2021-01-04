@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "ifaddr",
+    "name": "mingw-w64-python-ifaddr"
+}

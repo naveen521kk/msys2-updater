@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pywavelets",
+    "name": "mingw-w64-python-pywavelets"
+}

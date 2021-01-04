@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "rfc3986",
+    "name": "mingw-w64-python-rfc3986"
+}

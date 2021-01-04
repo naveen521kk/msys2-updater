@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "idna",
+    "name": "mingw-w64-python-idna"
+}

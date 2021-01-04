@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "ldap3",
+    "name": "mingw-w64-python-ldap3"
+}

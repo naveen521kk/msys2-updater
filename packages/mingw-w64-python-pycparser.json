@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pycparser",
+    "name": "mingw-w64-python-pycparser"
+}

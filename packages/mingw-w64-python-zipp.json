@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "zipp",
+    "name": "mingw-w64-python-zipp"
+}

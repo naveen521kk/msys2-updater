@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "mox3",
+    "name": "mingw-w64-python-mox3"
+}

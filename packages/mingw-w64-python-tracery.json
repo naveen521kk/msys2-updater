@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "tracery",
+    "name": "mingw-w64-python-tracery"
+}

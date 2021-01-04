@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "flaky",
+    "name": "mingw-w64-python-flaky"
+}

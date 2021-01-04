@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "nose",
+    "name": "mingw-w64-python-nose"
+}

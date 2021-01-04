@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "lxml",
+    "name": "mingw-w64-python-lxml"
+}

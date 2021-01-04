@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pretend",
+    "name": "mingw-w64-python-pretend"
+}

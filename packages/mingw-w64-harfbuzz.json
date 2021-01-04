@@ -1,7 +1,6 @@
 {
     "type": "github",
     "slug": "harfbuzz/harfbuzz",
-    "checksum_type": "sha256",
     "name": "mingw-w64-harfbuzz",
     "api_url": "",
     "repo":"MINGW"

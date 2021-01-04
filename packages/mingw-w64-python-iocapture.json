@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "iocapture",
+    "name": "mingw-w64-python-iocapture"
+}

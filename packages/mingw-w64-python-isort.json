@@ -1,8 +1,6 @@
 {
-    "type": "github",
-    "slug": "PyCQA/isort",
-    "checksum_type": "sha256",
-    "name": "mingw-w64-python-isort",
-    "api_url": "",
-    "repo":"MINGW"
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "isort",
+    "name": "mingw-w64-python-isort"
 }

@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "dill",
+    "name": "mingw-w64-python-dill"
+}

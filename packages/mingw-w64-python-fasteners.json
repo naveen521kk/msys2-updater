@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "fasteners",
+    "name": "mingw-w64-python-fasteners"
+}

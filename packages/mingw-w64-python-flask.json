@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "flask",
+    "name": "mingw-w64-python-flask"
+}
