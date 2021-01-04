@@ -2,5 +2,6 @@
     "type": "pypi",
     "project": "manimpango",
     "checksum_type": "sha256",
-    "name": "mingw-w64-python-manimpango"
+    "name": "mingw-w64-python-manimpango",
+    "repo":"MINGW"
 }

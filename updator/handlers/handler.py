@@ -1,8 +1,8 @@
 # Copyright 2021 Naveen M K
 # SPDX-License-Identifier: MIT
 
-from ..constants import REPO_PATH, Regex
-from ..utils import version_is_newer_than
+from ..constants import Regex
+from ..utils import version_is_newer_than,get_repo_path
 
 
 class Handler:
@@ -15,6 +15,7 @@ class Handler:
 
     @property
     def current_version(self) -> None:
+        REPO_PATH = get_repo_path(self.info)
         if hasattr(self,'_current_version'):
             return self._current_version
         info = self.info

@@ -3,5 +3,6 @@
     "id": "2767",
     "checksum_type": "sha256",
     "name": "mingw-w64-libslirp",
-    "api_url": "https://gitlab.freedesktop.org"
+    "api_url": "https://gitlab.freedesktop.org",
+    "repo":"MINGW"
 }

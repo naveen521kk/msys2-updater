@@ -3,5 +3,6 @@
     "slug": "PyCQA/isort",
     "checksum_type": "sha256",
     "name": "mingw-w64-python-isort",
-    "api_url": ""
+    "api_url": "",
+    "repo":"MINGW"
 }

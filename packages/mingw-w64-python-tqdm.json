@@ -2,5 +2,6 @@
     "type": "pypi",
     "project": "tqdm",
     "checksum_type": "sha256",
-    "name": "mingw-w64-python-tqdm"
+    "name": "mingw-w64-python-tqdm",
+    "repo":"MINGW"
 }

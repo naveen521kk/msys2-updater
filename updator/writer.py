@@ -1,4 +1,4 @@
-from .constants import Regex, REPO_PATH
+from .constants import Regex
 from .handlers.handler import Handler
 from .logger import logger
 import re
@@ -7,7 +7,7 @@ import shlex
 import textwrap
 import tempfile
 from pathlib import Path
-from .utils import find_checksum
+from .utils import find_checksum,get_repo_path
 
 
 def run_command(command, cwd):
@@ -29,6 +29,7 @@ def run_command(command, cwd):
 class Writer:
     def __init__(self, info, handler: Handler) -> None:
         self.name = info["name"]
+        REPO_PATH = get_repo_path(info)
         self.filename = REPO_PATH / self.name / "PKGBUILD"
         self.checksum_regex: re.Pattern = Regex.checksum.value
         self.handler = handler
@@ -114,13 +115,12 @@ class Writer:
         return find_checksum(url, ctype)
 
     def checksum_writer(self, match):
-        return f"{match.group('type')}sums='({self.checksum})"
+        return f"{match.group('type')}sums='({self.checksum})'"
 
     def write_checksum(self):
         content = self.content
         checksum = self.checksum
         logger.info("Updating checksum of %s", self.name)
         regex_checksum = self.checksum_regex
-        content = regex_checksum.sub(self.version_writer, content, count=1)
-        content = regex_checksum.sub(self.pkgrel_writer, content, count=1)
+        content = regex_checksum.sub(self.checksum_writer, content, count=1)
         self.content = content

@@ -4,6 +4,7 @@ from typing import List, Tuple, Optional, Dict, Set
 import requests
 import hashlib
 from .logger import logger
+from .constants import REPO_PATH
 def vercmp(v1: str, v2: str) -> int:
     """
     Copyright 2016-2020 Christoph Reiter
@@ -122,3 +123,6 @@ def find_checksum(url,hashtype):
     file_hash = hashlib.new(hashtype)
     file_hash.update(con.content)
     return file_hash.hexdigest()
+
+def get_repo_path(info):
+    return REPO_PATH / (info['repo']+"-packages")
