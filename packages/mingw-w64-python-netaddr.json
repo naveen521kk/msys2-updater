@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "netaddr",
-    "name": "mingw-w64-python-netaddr"
-}

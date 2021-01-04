@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "gmpy2",
-    "name": "mingw-w64-python-gmpy2"
-}

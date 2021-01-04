@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "scipy",
-    "name": "mingw-w64-python-scipy"
-}

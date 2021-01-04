@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "llvmlite",
-    "name": "mingw-w64-python-llvmlite"
-}

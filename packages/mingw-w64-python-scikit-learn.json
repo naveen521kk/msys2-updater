@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "scikit-learn",
-    "name": "mingw-w64-python-scikit-learn"
-}

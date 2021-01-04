@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "keras",
-    "name": "mingw-w64-python-keras"
-}

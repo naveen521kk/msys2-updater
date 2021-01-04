@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "argon2_cffi",
-    "name": "mingw-w64-python-argon2_cffi"
-}

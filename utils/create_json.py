@@ -9,7 +9,7 @@ for i in repo.iterdir():
     main={'type':'pypi',"repo":"MINGW"}
     if i.is_dir() and "python-" in str(i):
         if not i.glob('*.patch'):
-            pass
+            continue
         project = i.stem[17:]  #mingw-w64-python- = 17 chars :)
         main['project'] = project
         main['name']=i.stem

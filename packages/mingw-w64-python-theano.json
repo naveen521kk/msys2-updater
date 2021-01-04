@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "theano",
-    "name": "mingw-w64-python-theano"
-}

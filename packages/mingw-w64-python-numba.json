@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "numba",
-    "name": "mingw-w64-python-numba"
-}
