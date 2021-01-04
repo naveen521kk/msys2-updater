@@ -1,3 +1,0 @@
-[submodule "MINGW-packages"]
-	path = MINGW-packages
-	url = https://github.com/msys2/MINGW-packages.git
