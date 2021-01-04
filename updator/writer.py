@@ -120,6 +120,7 @@ class Writer:
         content = self.content
         checksum = self.checksum
         logger.info("Updating checksum of %s", self.name)
-        content = regex_version.sub(self.version_writer, content, count=1)
-        content = regex_pkg_rel.sub(self.pkgrel_writer, content, count=1)
+        regex_checksum = self.checksum_regex
+        content = regex_checksum.sub(self.version_writer, content, count=1)
+        content = regex_checksum.sub(self.pkgrel_writer, content, count=1)
         self.content = content
