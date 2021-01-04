@@ -1,7 +1,7 @@
 {
     "type": "github",
-    "slug": "PyCQA/isort",
+    "slug": "harfbuzz/harfbuzz",
     "checksum_type": "sha256",
-    "name": "mingw-w64-python-isort",
+    "name": "mingw-w64-harfbuzz",
     "api_url": ""
 }
