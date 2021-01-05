@@ -18,10 +18,12 @@ jobs:
         repository: msys2/MINGW-packages
         ref: master
         path: "MINGW-packages"
-    - name: Set up Python 3.6
+        persist-credentials: false
+        fetch-depth: 0
+    - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
-        python-version: 3.6
+        python-version: 3.8
     - name: Install dependencies
       working-directory: updator
       run: |
@@ -39,5 +41,19 @@ jobs:
       with:
           name: logs
           path: updator/*.log
-            
-    
+    - name: Commit
+      shell: bash
+      working-directory: MINGW-packages
+      run: |
+        git remote add fork https://github.com/naveen521kk/MINGW-packages.git
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -am "Update"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: update
+        force: true
+        directory: MINGW-packages
+        repository: naveen521kk/MINGW-packages
