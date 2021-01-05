@@ -116,7 +116,7 @@ class Writer:
         return find_checksum(url, ctype)
 
     def checksum_writer(self, match):
-        return f"{match.group('type')}sums=('{self.checksum}')"
+        return f"{match.group('type')}sums=('{self.checksum}')\n"
 
     def write_checksum(self):
         content = self.content
