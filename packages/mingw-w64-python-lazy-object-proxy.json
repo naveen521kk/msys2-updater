@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "lazy-object-proxy",
-    "name": "mingw-w64-python-lazy-object-proxy"
-}
