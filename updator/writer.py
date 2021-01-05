@@ -36,6 +36,7 @@ class Writer:
         if handler.update:
             self.write_version()
             self.write_checksum()
+            self.finalise_content()
 
     @property
     def content(self):
@@ -47,8 +48,6 @@ class Writer:
 
     @content.setter
     def content(self, content):
-        with open(self.filename, "w") as f:
-            f.write(content)
         self._content = content
 
     # version writer begins
@@ -101,6 +100,8 @@ class Writer:
             if len(out) == 1:
                 if "::" in out[0]:
                     out = out[0].split("::")[1]
+                else:
+                    out=out[0]
             for i, j in enumerate(out):
                 if "::" in j:
                     out[i] = j.split("::")[1]
@@ -124,3 +125,7 @@ class Writer:
         regex_checksum = self.checksum_regex
         content = regex_checksum.sub(self.checksum_writer, content, count=1)
         self.content = content
+
+    def finalise_content(self):
+        with open(self.filename, "w") as f:
+            f.write(self.content)
