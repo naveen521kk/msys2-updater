@@ -8,6 +8,7 @@ jobs:
     runs-on: windows-latest
     env:
       POETRY_VIRTUALENVS_CREATE: false
+      PYTHONIOENCODING: utf-8
     steps:
     - uses: actions/checkout@v2
       with:
