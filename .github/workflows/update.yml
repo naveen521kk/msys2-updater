@@ -1,0 +1,43 @@
+name: update
+
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  update:
+    runs-on: windows-latest
+    env:
+      POETRY_VIRTUALENVS_CREATE: false
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        path: updator
+    - name: Clone MINGW
+      uses: actions/checkout@v2
+      with:
+        repository: msys2/MINGW-packages
+        ref: master
+        path: "MINGW-packages"
+    - name: Set up Python 3.6
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.6
+    - name: Install dependencies
+      working-directory: updator
+      run: |
+        python -m pip install --upgrade poetry
+        poetry install
+    - name: Run Updator
+      shell: bash
+      working-directory: updator
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: |
+        python -m updator
+    - name: "Upload logs"
+      uses: actions/upload-artifact@v2
+      with:
+          name: logs
+          path: updator/*.log
+            
+    
