@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "contextlib2",
-    "name": "mingw-w64-python-contextlib2"
-}

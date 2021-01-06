@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "urllib3",
-    "name": "mingw-w64-python-urllib3"
-}

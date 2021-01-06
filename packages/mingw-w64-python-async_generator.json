@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "async_generator",
-    "name": "mingw-w64-python-async_generator"
-}

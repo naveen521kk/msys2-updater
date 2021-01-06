@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "dnspython",
-    "name": "mingw-w64-python-dnspython"
-}

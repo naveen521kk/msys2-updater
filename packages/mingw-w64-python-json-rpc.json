@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "json-rpc",
-    "name": "mingw-w64-python-json-rpc"
-}

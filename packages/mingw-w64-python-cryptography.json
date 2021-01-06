@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "cryptography",
-    "name": "mingw-w64-python-cryptography"
-}

@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "cx_Freeze",
-    "name": "mingw-w64-python-cx_Freeze"
-}

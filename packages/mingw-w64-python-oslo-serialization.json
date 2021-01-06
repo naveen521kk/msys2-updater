@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "oslo-serialization",
-    "name": "mingw-w64-python-oslo-serialization"
-}

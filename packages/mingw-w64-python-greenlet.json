@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "greenlet",
-    "name": "mingw-w64-python-greenlet"
-}

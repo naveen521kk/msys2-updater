@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "wcwidth",
-    "name": "mingw-w64-python-wcwidth"
-}

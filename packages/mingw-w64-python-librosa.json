@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "librosa",
-    "name": "mingw-w64-python-librosa"
-}

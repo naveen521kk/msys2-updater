@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "sortedcontainers",
-    "name": "mingw-w64-python-sortedcontainers"
-}

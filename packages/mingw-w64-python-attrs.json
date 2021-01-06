@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "attrs",
-    "name": "mingw-w64-python-attrs"
-}

@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "oauth2client",
-    "name": "mingw-w64-python-oauth2client"
-}

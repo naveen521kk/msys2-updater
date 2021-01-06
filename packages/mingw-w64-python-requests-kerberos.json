@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "requests-kerberos",
-    "name": "mingw-w64-python-requests-kerberos"
-}

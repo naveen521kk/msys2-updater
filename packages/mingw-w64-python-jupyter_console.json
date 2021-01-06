@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "jupyter_console",
-    "name": "mingw-w64-python-jupyter_console"
-}

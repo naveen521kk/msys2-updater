@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "cmd2",
-    "name": "mingw-w64-python-cmd2"
-}

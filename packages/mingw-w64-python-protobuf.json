@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "protobuf",
-    "name": "mingw-w64-python-protobuf"
-}

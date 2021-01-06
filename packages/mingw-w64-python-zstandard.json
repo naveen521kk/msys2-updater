@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "zstandard",
-    "name": "mingw-w64-python-zstandard"
-}

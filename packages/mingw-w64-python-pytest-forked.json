@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "pytest-forked",
-    "name": "mingw-w64-python-pytest-forked"
-}

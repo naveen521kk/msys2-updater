@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "win_inet_pton",
-    "name": "mingw-w64-python-win_inet_pton"
-}

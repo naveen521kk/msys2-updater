@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "jupyter_core",
-    "name": "mingw-w64-python-jupyter_core"
-}

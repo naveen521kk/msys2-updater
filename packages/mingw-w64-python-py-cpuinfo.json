@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "py-cpuinfo",
-    "name": "mingw-w64-python-py-cpuinfo"
-}

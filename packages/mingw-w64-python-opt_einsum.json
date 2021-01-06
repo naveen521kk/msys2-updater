@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "opt_einsum",
-    "name": "mingw-w64-python-opt_einsum"
-}

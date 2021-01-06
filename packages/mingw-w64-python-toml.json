@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "toml",
-    "name": "mingw-w64-python-toml"
-}

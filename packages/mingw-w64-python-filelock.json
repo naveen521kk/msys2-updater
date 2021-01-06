@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "filelock",
-    "name": "mingw-w64-python-filelock"
-}

@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "xpra",
-    "name": "mingw-w64-python-xpra"
-}

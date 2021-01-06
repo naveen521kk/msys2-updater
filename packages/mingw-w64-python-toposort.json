@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "toposort",
-    "name": "mingw-w64-python-toposort"
-}

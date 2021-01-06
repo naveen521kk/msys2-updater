@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "biopython",
-    "name": "mingw-w64-python-biopython"
-}

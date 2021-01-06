@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "jupyter-nbconvert",
-    "name": "mingw-w64-python-jupyter-nbconvert"
-}

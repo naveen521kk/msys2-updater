@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "pyglet",
-    "name": "mingw-w64-python-pyglet"
-}

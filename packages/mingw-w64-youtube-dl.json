@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "youtube-dl",
+    "name": "mingw-w64-youtube-dl"
+}

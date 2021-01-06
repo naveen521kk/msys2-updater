@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "pep517",
-    "name": "mingw-w64-python-pep517"
-}

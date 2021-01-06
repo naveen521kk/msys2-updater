@@ -1,6 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "oslo-log",
-    "name": "mingw-w64-python-oslo-log"
-}
