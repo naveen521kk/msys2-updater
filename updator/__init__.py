@@ -32,11 +32,15 @@ def main():
         #     Writer(info,a)
         with open(file) as f:
             info = json.load(f)
-        if info["type"] == "pypi":
-            try:
-                logger.info("Checking %s",info['name'])
+        try:
+            if info["type"] == "pypi":
+                logger.info("Checking %s method PyPi",info['name'])
                 a = PyPiHandler(info)
                 Writer(info, a)
-            except Exception as e:
-                console.print_exception()
-                logging.error(e)
+            elif info["type"] == "github":
+                logger.info("Checking %s method Github",info['name'])
+                a = GithubHandler(info)
+                Writer(info,a)
+        except Exception as e:
+            console.print_exception()
+            logging.error(e)

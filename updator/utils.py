@@ -1,10 +1,12 @@
-import re
+
 from itertools import zip_longest
 from typing import List, Tuple, Optional, Dict, Set
 import requests
 import hashlib
 from .logger import logger
 from .constants import REPO_PATH
+import subprocess
+import shlex
 def vercmp(v1: str, v2: str) -> int:
     """
     Copyright 2016-2020 Christoph Reiter
@@ -126,3 +128,17 @@ def find_checksum(url,hashtype):
 
 def get_repo_path(info):
     return REPO_PATH / (info['repo']+"-packages")
+def run_command(command, cwd):
+    # """bash -c 'dsdas=hi kqw=pol && echo "${dsdas}${kqw}"'"""
+    k = shlex.split(command)
+    a = subprocess.Popen(
+        k,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        shell=True,
+        cwd=cwd,
+    )
+    stdout, stderr = a.communicate()
+    if stderr:
+        raise Exception(stderr.decode())
+    return stdout.decode()
