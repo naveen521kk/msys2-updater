@@ -1,4 +1,3 @@
-
 from itertools import zip_longest
 from typing import List, Tuple, Optional, Dict, Set
 import requests
@@ -7,11 +6,17 @@ from .logger import logger
 from .constants import REPO_PATH
 import subprocess
 import shlex
+import tempfile
+import textwrap
+from pathlib import Path
+
+
 def vercmp(v1: str, v2: str) -> int:
     """
     Copyright 2016-2020 Christoph Reiter
     SPDX-License-Identifier: MIT
     """
+
     def cmp(a: int, b: int) -> int:
         return (a > b) - (a < b)
 
@@ -65,8 +70,9 @@ def vercmp(v1: str, v2: str) -> int:
         return parts
 
     def rpmvercmp(v1: str, v2: str) -> int:
-        for (s1, p1), (s2, p2) in zip_longest(parse(v1), parse(v2),
-                                              fillvalue=(None, None)):
+        for (s1, p1), (s2, p2) in zip_longest(
+            parse(v1), parse(v2), fillvalue=(None, None)
+        ):
 
             if s1 is not None and s2 is not None:
                 ret = cmp(s1, s2)
@@ -114,22 +120,28 @@ def vercmp(v1: str, v2: str) -> int:
 
     return ret
 
+
 def version_is_newer_than(v1: str, v2: str) -> bool:
     return vercmp(v1, v2) == 1
 
-def find_checksum(url,hashtype):
-    logger.info("Finding checksum for URL: %s",url)
-    logger.info("Hash type: %s",hashtype)
+
+def find_checksum(url, hashtype):
+    logger.info("Finding checksum for URL: %s", url)
+    logger.info("Hash type: %s", hashtype)
     con = requests.get(url)
     assert con.status_code != 404
     file_hash = hashlib.new(hashtype)
     file_hash.update(con.content)
     return file_hash.hexdigest()
 
+
 def get_repo_path(info):
-    return REPO_PATH / (info['repo']+"-packages")
+    return REPO_PATH / (info["repo"] + "-packages")
+
+
 def run_command(command, cwd):
-    # """bash -c 'dsdas=hi kqw=pol && echo "${dsdas}${kqw}"'"""
+    """Runs a command using subprocess
+    """
     k = shlex.split(command)
     a = subprocess.Popen(
         k,
@@ -142,3 +154,71 @@ def run_command(command, cwd):
     if stderr:
         raise Exception(stderr.decode())
     return stdout.decode()
+
+class PKGBUILD:
+    """An utility class to get Data from the
+    content of ``PKGBUILD`` provided.
+
+    Examples
+    --------
+
+    >>> a=PKGBUILD(open('./PKGBUILD').read())
+    >>> a.pkgrel
+    1
+    >>> a.pkgver
+    1.2.3
+    """
+    def __init__(self,content) -> None:
+        self.content = content
+    def __getattr__(self, var):
+        att= self.get_variable_from_pkgbuild(var)
+        if not att:
+            raise AttributeError(f"No attribute {att} in PKGBUILD")
+        else:
+            return att
+    def check_variable_is_array(self, variable):
+        content = self.content
+        base = f"#!/bin/bash\n{content}\n"
+        base += f"declare -p {variable} 2> /dev/null | grep -q 'declare \-a' && echo 1 || echo 0\n"
+        with tempfile.TemporaryDirectory() as tmpdirname:
+            tmpdirname = Path(".")
+            with open(Path(tmpdirname) / "var.sh", "w") as f:
+                f.write(base)
+            out = run_command(f"bash {Path(tmpdirname).as_posix()}/var.sh", cwd=tmpdirname)
+            run_command(f"rm var.sh", cwd=tmpdirname)
+        return bool(int(out))
+
+
+    def get_variable_from_pkgbuild(self, variable):
+        content = self.content
+        base = f"#!/bin/bash\n{content}\n"
+        base += f"isarray=$(declare -p {variable} 2> /dev/null | grep -q 'declare \-a' && echo true || echo false)\n"
+        with tempfile.TemporaryDirectory() as tmpdirname:
+            tmpdirname = Path(".")
+            with open(Path(tmpdirname) / "test.sh", "w") as f:
+                f.write(
+                    base
+                    + f"declare -n tempvar={variable}\n"
+                    + textwrap.dedent(
+                        """\
+                            if [ $isarray=true ]
+                            then
+                                for i in "${!tempvar[@]}"; do
+                                    printf "${tempvar[i]}\\n"
+                                done
+                            else
+                                printf "${variable}\\n"
+                            fi
+                        """
+                    )
+                )
+            out = run_command(f"bash {Path(tmpdirname).as_posix()}/test.sh", cwd=tmpdirname)
+            run_command(f"rm test.sh", cwd=tmpdirname)
+            out = out[:-1]
+            if self.check_variable_is_array(variable):
+                out = out.split("\n")
+                for i, j in enumerate(out):
+                    if "::" in j:
+                        out[i] = j.split("::")[1]
+                return out
+            return out

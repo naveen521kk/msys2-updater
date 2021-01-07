@@ -7,7 +7,7 @@ from pathlib import Path
 from .constants import Regex
 from .handlers.handler import Handler
 from .logger import logger
-from .utils import find_checksum, get_repo_path, run_command
+from .utils import find_checksum, get_repo_path, PKGBUILD
 
 
 class Writer:
@@ -65,35 +65,9 @@ class Writer:
     def checksum_url(self):
         if hasattr(self, "_checksum_url"):
             return self._checksum_url
-        content = self.content
-        base = f"#!/bin/bash\n{content}"
-        with tempfile.TemporaryDirectory() as tmpdirname:
-            with open(Path(tmpdirname) / "test.sh", "w") as f:
-                f.write(
-                    base
-                    + textwrap.dedent(
-                        """\
-                        for i in "${!source[@]}"; do
-                            printf "${source[i]}\n"
-                        done
-                        """
-                    )
-                )
-            out = run_command(
-                f"bash {Path(tmpdirname).as_posix()}/test.sh", cwd=tmpdirname
-            )
-            out = out.split("\n")[:-1]
-            if len(out) == 1:
-                if "::" in out[0]:
-                    out = out[0].split("::")[1]
-                else:
-                    out = out[0]
-            for i, j in enumerate(out):
-                if "::" in j:
-                    out[i] = j.split("::")[1]
-            run_command(f"rm test.sh", cwd=tmpdirname)
-        self._checksum_url = out
-        return out
+        base = PKGBUILD(self.content)
+        self._checksum_url = base.source
+        return self._checksum_url
 
     @property
     def checksum(self) -> T.Dict[str, str]:
@@ -118,12 +92,10 @@ class Writer:
         checksum = self.checksum
         checksum_url = self.checksum_url
         if len(checksum_url) == 1:
-            return f"{match.group('type')}sums=('{self.checksum}')\n"
+            return f"{match.group('type')}sums=('{self.checksum[checksum_url[0]]}')\n"
         elif len(checksum_url) > 1:
             final = f"{match.group('type')}sums=('"
             indent = len(final) - 1
-            logger.info(checksum_url)
-            logger.info(checksum)
             for n, i in enumerate(checksum_url):
                 if n == len(checksum_url) - 1:
                     indent = 0
