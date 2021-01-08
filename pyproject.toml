@@ -12,6 +12,8 @@ python-gitlab = "^2.5"
 requests="^2.25"
 rich = "^9.6.1"
 poetry = "^1.1.4"
+packaging = "^20.8"
+johnnydep = "^1.7"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^20.8b1", allow-prereleases = true}

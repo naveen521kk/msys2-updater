@@ -2,9 +2,9 @@ import logging
 from rich.console import Console
 from rich.logging import RichHandler
 from rich.theme import Theme
-
+import os
 logger = logging.getLogger("msys2-updator")
-
+ci = os.getenv("CI",None)
 custom_theme = Theme(
     {
         "log.level": "magenta",
@@ -15,7 +15,10 @@ custom_theme = Theme(
         "logging.level.notset":"red on white"
     },
 )
-console=Console(theme=custom_theme)
+if ci:
+    console=Console(theme=custom_theme, force_terminal=True, color_system="truecolor")
+else:
+    console=Console(theme=custom_theme)
 logger.addHandler(
     RichHandler(
         show_time=False,
