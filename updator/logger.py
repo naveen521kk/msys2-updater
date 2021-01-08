@@ -16,7 +16,7 @@ custom_theme = Theme(
     },
 )
 
-console=Console(theme=custom_theme, force_terminal=True, color_system="truecolor")
+console=Console(theme=custom_theme, force_terminal=True, color_system="truecolor", legacy_windows=False, width=120)
 
 logger.addHandler(
     RichHandler(
