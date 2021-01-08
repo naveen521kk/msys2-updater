@@ -26,3 +26,4 @@ logger.addHandler(
         rich_tracebacks=True
     )
 )
+logger.info(console.options)
