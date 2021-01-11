@@ -194,7 +194,8 @@ class PKGBUILD:
         base = f"#!/bin/bash\n{content}\n"
         base += f"isarray=$(declare -p {variable} 2> /dev/null | grep -q 'declare \-a' && echo true || echo false)\n"
         with tempfile.TemporaryDirectory() as tmpdirname:
-            tmpdirname = Path(".")
+            #tmpdirname = Path(".")
+            tmpdirname = Path(tmpdirname)
             with open(Path(tmpdirname) / "test.sh", "w") as f:
                 f.write(
                     base

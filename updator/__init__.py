@@ -8,7 +8,7 @@ from .constants import PACKAGES_PATH
 from .handlers.github import GithubHandler
 from .handlers.gitlab import GitlabHandler
 from .handlers.pypi import PyPiHandler
-
+from .deps.pypi import PyPiDepsManager
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--debug", action="store_true", help="enable debug mode")
@@ -24,6 +24,10 @@ def main():
                 logger.info("Checking %s method PyPi",info['name'])
                 a = PyPiHandler(info)
                 Writer(info, a)
+                with open(file) as f:
+                    info = json.load(f)
+                # check for dependency changes now
+                PyPiDepsManager(a.remote_version,info)
             elif info["type"] == "github":
                 logger.info("Checking %s method Github",info['name'])
                 a = GithubHandler(info)

@@ -1,18 +1,16 @@
 import re
-import tempfile
-import textwrap
 import typing as T
-from pathlib import Path
-
-from .constants import Regex
+import json
+from .constants import Regex, PACKAGES_PATH
 from .handlers.handler import Handler
 from .logger import logger
-from .utils import find_checksum, get_repo_path, PKGBUILD
+from .utils import PKGBUILD, find_checksum, get_repo_path
 
 
 class Writer:
     def __init__(self, info, handler: Handler) -> None:
         self.name = info["name"]
+        self.info = info
         REPO_PATH = get_repo_path(info)
         self.filename = REPO_PATH / self.name / "PKGBUILD"
         self.checksum_regex: re.Pattern = Regex.checksum.value
@@ -21,6 +19,12 @@ class Writer:
             self.write_version()
             self.write_checksum()
             self.finalise_content()
+            self.write_update()
+
+    def write_update(self):
+        self.info["update"] = True
+        with open(PACKAGES_PATH / (self.info["name"] + ".json"), "w") as f:
+            json.dump(self.info, f, indent=4)
 
     @property
     def content(self) -> str:
