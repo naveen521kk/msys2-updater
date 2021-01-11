@@ -45,6 +45,7 @@ jobs:
     - name: Get Commit Message
       id: message
       shell: bash
+      working-directory: updator
       run: |
           python utils/commit_message.py
     - name: Commit
