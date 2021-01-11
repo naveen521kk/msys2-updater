@@ -100,19 +100,18 @@ class PyPiDepsManager:
 
     def dependecy_writer(self, match):
         deps = self.deps_from_pypi
+        deps += ["${MINGW_PACKAGE_PREFIX}-python"]
         final = f"depends=('"
-        if deps:
-            indent = len(final) - 1
-            for n, i in enumerate(deps):
-                if n == len(deps) - 1:
-                    indent = 0
-                final += deps[i] + "'\n" if final[-1] == "'" else "'" + deps[i] + "'\n"
-                final += " " * indent
-            else:
-                final += ")\n"
-            return final
-        final += "')\n"
+        indent = len(final) - 1
+        for n, i in enumerate(deps):
+            if n == len(deps) - 1:
+                indent = 0
+            final += deps[i] + "'\n" if final[-1] == "'" else "'" + deps[i] + "'\n"
+            final += " " * indent
+        else:
+            final += ")\n"
         return final
+
 
     def finalise_content(self):
         if hasattr(self, "_content"):
