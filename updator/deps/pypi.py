@@ -64,7 +64,7 @@ class PyPiDepsManager:
         deps_req = []
         if con["info"]["requires_dist"]:
             for dep in con["info"]["requires_dist"]:
-                a=Requirement(dep)
+                a = Requirement(dep)
                 if a.marker:
                     if "extra" in str(a.marker):
                         continue
@@ -85,12 +85,12 @@ class PyPiDepsManager:
         if MINGW_PACKAGE_PREFIX + "-python" in deps_in_pkgbuild:
             deps_in_pkgbuild.remove(MINGW_PACKAGE_PREFIX + "-python")
         logger.info("Got dependency from pkgbuild: %s", deps_in_pkgbuild)
-        logger.info("Got dependency from pypi: %s",deps_from_pypi)
+        logger.info("Got dependency from pypi: %s", deps_from_pypi)
         if deps_in_pkgbuild == deps_from_pypi:
             logger.info("No dependency Changes")
             return
         else:
-            content =self.content
+            content = self.content
             for i in deps_from_pypi:
                 i.replace(MINGW_PACKAGE_PREFIX, "${MINGW_PACKAGE_PREFIX}")
             self.deps_from_pypi = deps_from_pypi + ["${MINGW_PACKAGE_PREFIX}-python"]
@@ -100,10 +100,10 @@ class PyPiDepsManager:
 
     def dependecy_writer(self, match):
         deps = self.deps_from_pypi
-        final = f"depends=('"
+        final = f'depends=("'
         indent = len(final) - 1
         for n in range(len(deps)):
-            final += deps[n] + "'" if final[-1] == "'" else "'" + deps[n] + "'"
+            final += deps[n] + "\"" if final[-1] == "\"" else "\"" + deps[n] + "\""
             if n == len(deps) - 1:
                 indent = 0
             else:
@@ -112,7 +112,6 @@ class PyPiDepsManager:
         else:
             final += ")\n"
         return final
-
 
     def finalise_content(self):
         if hasattr(self, "_content"):
