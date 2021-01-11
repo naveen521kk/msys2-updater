@@ -39,8 +39,7 @@ jobs:
     - name: Install dependencies
       working-directory: updator
       run: |
-        python -m pip install --upgrade poetry
-        poetry install
+        pip install --user -r requirements.txt
     - name: Run Updator
       shell: bash
       working-directory: updator
