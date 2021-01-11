@@ -9,7 +9,17 @@ jobs:
     env:
       POETRY_VIRTUALENVS_CREATE: false
       PYTHONIOENCODING: utf-8
+    defaults:
+      run:
+        shell: msys2 {0}
     steps:
+    - uses: msys2/setup-msys2@v2
+      with:
+        update: true
+        install: >-
+          mingw-w64-x86_64-python
+          mingw-w64-x86_64-python-pip
+          git
     - uses: actions/checkout@v2
       with:
         path: updator
@@ -44,12 +54,10 @@ jobs:
           path: updator/*.log
     - name: Get Commit Message
       id: message
-      shell: bash
       working-directory: updator
       run: |
           python utils/commit_message.py
     - name: Commit
-      shell: bash
       env:
         commit_message: ${{ steps.message.outputs.commit_message }}
       working-directory: MINGW-packages
