@@ -93,20 +93,21 @@ class PyPiDepsManager:
             content =self.content
             for i in deps_from_pypi:
                 i.replace(MINGW_PACKAGE_PREFIX, "${MINGW_PACKAGE_PREFIX}")
-            self.deps_from_pypi = deps_from_pypi
+            self.deps_from_pypi = deps_from_pypi + ["${MINGW_PACKAGE_PREFIX}-python"]
             regex_dependency = self.dependecy_regex
             content = regex_dependency.sub(self.dependecy_writer, content)
             self.content = content
 
     def dependecy_writer(self, match):
         deps = self.deps_from_pypi
-        deps += ["${MINGW_PACKAGE_PREFIX}-python"]
         final = f"depends=('"
         indent = len(final) - 1
-        for n, i in enumerate(deps):
+        for n in range(len(deps)):
+            final += deps[n] + "'" if final[-1] == "'" else "'" + deps[n] + "'"
             if n == len(deps) - 1:
                 indent = 0
-            final += deps[i] + "'\n" if final[-1] == "'" else "'" + deps[i] + "'\n"
+            else:
+                final += "\n"
             final += " " * indent
         else:
             final += ")\n"
