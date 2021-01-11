@@ -107,14 +107,13 @@ class Writer:
                         if final[-1] == "'"
                         else "'" + checksum[i] + "'"
                     )
-                    final += " " * indent
                 else:
                     final += "SKIP'" if final[-1] == "'" else "'SKIP'"
-                    final += " " * indent
                 if n == len(checksum_url) - 1:
                     indent = 0
                 else:
                     final+="\n"
+                final += " " * indent
             else:
                 final += ")\n"
             return final
