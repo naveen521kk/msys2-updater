@@ -101,18 +101,20 @@ class Writer:
             final = f"{match.group('type')}sums=('"
             indent = len(final) - 1
             for n, i in enumerate(checksum_url):
-                if n == len(checksum_url) - 1:
-                    indent = 0
                 if checksum[i] is not None:
                     final += (
-                        checksum[i] + "'\n"
+                        checksum[i] + "'"
                         if final[-1] == "'"
-                        else "'" + checksum[i] + "'\n"
+                        else "'" + checksum[i] + "'"
                     )
                     final += " " * indent
                 else:
-                    final += "SKIP'\n" if final[-1] == "'" else "'SKIP'\n"
+                    final += "SKIP'" if final[-1] == "'" else "'SKIP'"
                     final += " " * indent
+                if n == len(checksum_url) - 1:
+                    indent = 0
+                else:
+                    final+="\n"
             else:
                 final += ")\n"
             return final
