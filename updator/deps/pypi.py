@@ -5,12 +5,12 @@ from packaging.requirements import Requirement
 from ..constants import MINGW_PACKAGE_PREFIX, PYPI_URL_BASE, Regex
 from ..logger import logger
 from ..utils import PKGBUILD, get_repo_path
-
+from ..handlers.handler import Handler
 
 class PyPiDepsManager:
     def __init__(
         self,
-        pypi_project_version: str,
+        handler: Handler,
         info: dict,
     ):
         """
@@ -19,15 +19,15 @@ class PyPiDepsManager:
 
         Parameters
         ----------
-        pypi_project_version: :class:`str`
-            Version of the package for which dependency
-            is needed.
+        handler: :class:`Handler`
+            The previous PyPI update handle.
         package_name: :class:`str`
             The package name of it in MSYS2/MINGW
         info: :class:`dict`
             A copy of the json dict.
         """
         pypi_project_name = info["project"]
+        pypi_project_version = handler.remote_version
         logger.info(
             "Dependency solving for %s %s", pypi_project_name, pypi_project_version
         )
@@ -42,9 +42,10 @@ class PyPiDepsManager:
         logger.debug("API URL: %s", self.url)
         with open(REPO_PATH / info["name"] / "PKGBUILD") as f:
             self.pkgbuild = PKGBUILD(f.read())
-        self.query_pypi()
-        self.check_dep_change()
-        self.finalise_content()
+        if handler.update:
+            self.query_pypi()
+            self.check_dep_change()
+            self.finalise_content()
 
     @property
     def content(self) -> str:
@@ -70,7 +71,9 @@ class PyPiDepsManager:
                         continue
                     if a.marker.evaluate():
                         deps_req.append(a)
-                        logger.debug("Got dependency:%s", dep)
+                else:
+                    deps_req.append(a)
+                logger.debug("Got dependency:%s", dep)
             self.deps = deps_req
         else:
             self.deps = []

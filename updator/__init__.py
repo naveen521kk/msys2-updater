@@ -27,7 +27,7 @@ def main():
                 with open(file) as f:
                     info = json.load(f)
                 # check for dependency changes now
-                PyPiDepsManager(a.remote_version,info)
+                PyPiDepsManager(a,info)
             elif info["type"] == "github":
                 logger.info("Checking %s method Github",info['name'])
                 a = GithubHandler(info)
