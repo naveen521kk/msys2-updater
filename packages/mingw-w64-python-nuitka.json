@@ -2,6 +2,5 @@
     "type": "pypi",
     "repo": "MINGW",
     "project": "nuitka",
-    "name": "mingw-w64-python-nuitka",
-    "update": true
+    "name": "mingw-w64-python-nuitka"
 }
