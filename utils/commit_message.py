@@ -10,6 +10,6 @@ for file in Path(PACKAGES_PATH).glob("*.json"):
     if "update" in info:
         if info["update"]:
             commit_message.append(info["name"])
-#message = r"\n- " + r"\n- ".join(commit_message)
-message = " ".join(commit_message)
-print(f"::set-output name=commit_message::Update {message}")
+message = r"\n- " + r"\n- ".join(commit_message)
+#message = " ".join(commit_message)
+print(f"Update {message}")
