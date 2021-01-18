@@ -51,7 +51,7 @@ jobs:
       id: message
       working-directory: updator
       run: |
-          $MY_STRING=$(python utils/commit_message.py)
+          MY_STRING=$(python utils/commit_message.py)
           MY_STRING="${MY_STRING//'%'/'%25'}"
           MY_STRING="${MY_STRING//$'\n'/'%0A'}"
           MY_STRING="${MY_STRING//$'\r'/'%0D'}"
