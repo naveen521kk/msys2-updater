@@ -101,7 +101,7 @@ class PyPiDepsManager:
             #if self.deps_from_pypi==[]:
             if deps_from_pypi == []:
                 deps_from_pypi.append("${MINGW_PACKAGE_PREFIX}-python")
-            self.deps_from_pypi = deps_from_pypi + ["${MINGW_PACKAGE_PREFIX}-python"]
+            self.deps_from_pypi = deps_from_pypi
             regex_dependency = self.dependecy_regex
             content = regex_dependency.sub(self.dependecy_writer, content)
             self.content = content
