@@ -85,6 +85,8 @@ class PyPiDepsManager:
             MINGW_PACKAGE_PREFIX + "-python-" + i.name for i in self.deps
         ]
         deps_in_pkgbuild = pkgbuild.depends
+        deps_in_pkgbuild.sort()
+        deps_from_pypi.sort()
         if MINGW_PACKAGE_PREFIX + "-python" in deps_in_pkgbuild:
             deps_in_pkgbuild.remove(MINGW_PACKAGE_PREFIX + "-python")
         logger.info("Got dependency from pkgbuild: %s", deps_in_pkgbuild)
@@ -94,8 +96,8 @@ class PyPiDepsManager:
             return
         else:
             content = self.content
-            for i in deps_from_pypi:
-                i.replace(MINGW_PACKAGE_PREFIX, "${MINGW_PACKAGE_PREFIX}")
+            for i in range(len(deps_from_pypi)):
+                deps_from_pypi[i] = deps_from_pypi[i].replace(MINGW_PACKAGE_PREFIX, r"${MINGW_PACKAGE_PREFIX}")
             self.deps_from_pypi = deps_from_pypi + ["${MINGW_PACKAGE_PREFIX}-python"]
             regex_dependency = self.dependecy_regex
             content = regex_dependency.sub(self.dependecy_writer, content)
