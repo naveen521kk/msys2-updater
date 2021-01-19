@@ -10,7 +10,7 @@ python = "^3.7"
 PyGithub = "^1.54"
 python-gitlab = "^2.5"
 requests="^2.25"
-rich = "^9.6.1"
+rich = "^9.8.2"
 packaging = "^20.8"
 
 [tool.poetry.dev-dependencies]
