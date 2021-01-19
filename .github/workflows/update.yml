@@ -47,8 +47,16 @@ jobs:
       with:
           name: logs
           path: updator/*.log
+          
+    - name: Check for modified files
+      shell: bash
+      id: git-check
+      run: |
+          echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+          git ls-files -m>/d/diffmod.txt
     - name: Get Commit Message
       id: message
+      if: steps.git-check.outputs.modified == 'true'
       working-directory: updator
       run: |
           MY_STRING=$(python utils/commit_message.py)
@@ -60,6 +68,7 @@ jobs:
       env:
         commit_message: ${{ steps.message.outputs.commit_message }}
       working-directory: MINGW-packages
+      if: steps.git-check.outputs.modified == 'true'
       run: |
         git remote add fork https://github.com/naveen521kk/MINGW-packages.git
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -67,6 +76,7 @@ jobs:
         git commit -am "${commit_message}"
     - name: Push changes
       uses: ad-m/github-push-action@master
+      if: steps.git-check.outputs.modified == 'true'
       with:
         github_token: ${{ secrets.TOKEN_PUSH }}
         branch: update
