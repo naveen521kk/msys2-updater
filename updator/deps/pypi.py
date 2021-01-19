@@ -87,10 +87,15 @@ class PyPiDepsManager:
         deps_in_pkgbuild = pkgbuild.depends
         deps_in_pkgbuild.sort()
         deps_from_pypi.sort()
-        if MINGW_PACKAGE_PREFIX + "-python" in deps_in_pkgbuild:
-            deps_in_pkgbuild.remove(MINGW_PACKAGE_PREFIX + "-python")
         logger.info("Got dependency from pkgbuild: %s", deps_in_pkgbuild)
         logger.info("Got dependency from pypi: %s", deps_from_pypi)
+        for i in deps_in_pkgbuild:
+            if "mingw-w64-x86_64-python" not in i:
+                deps_from_pypi.append(i)
+        deps_from_pypi.sort()
+        if MINGW_PACKAGE_PREFIX + "-python" in deps_in_pkgbuild:
+            deps_in_pkgbuild.remove(MINGW_PACKAGE_PREFIX + "-python")
+
         if deps_in_pkgbuild == deps_from_pypi:
             logger.info("No dependency Changes")
             return
