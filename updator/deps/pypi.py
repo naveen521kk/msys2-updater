@@ -82,7 +82,7 @@ class PyPiDepsManager:
         """Check for dependecy in the ``PKGBUILD`` file."""
         pkgbuild = self.pkgbuild
         deps_from_pypi: T.List[str] = [
-            MINGW_PACKAGE_PREFIX + "-python-" + i.name for i in self.deps
+            MINGW_PACKAGE_PREFIX + "-python-" + str(i.name).replace('-','_') for i in self.deps
         ]
         deps_in_pkgbuild = pkgbuild.depends
         deps_in_pkgbuild.sort()
