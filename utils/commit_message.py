@@ -12,4 +12,4 @@ for file in Path(PACKAGES_PATH).glob("*.json"):
             commit_message.append(info["name"])
 message = "\n- " + "\n- ".join(commit_message)
 #message = " ".join(commit_message)
-print(f"Update {message}")
+print(f"UPDATE {len(commit_message)}:{message}")
