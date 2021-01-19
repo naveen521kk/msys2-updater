@@ -1,0 +1,6 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "decorator",
+    "name": "mingw-w64-python-decorator"
+}
