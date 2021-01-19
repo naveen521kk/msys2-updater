@@ -4,6 +4,6 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
-      labels:
+    labels:
       - "dependencies"
     open-pull-requests-limit: 3
