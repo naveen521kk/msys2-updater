@@ -2,5 +2,6 @@
     "type": "pypi",
     "repo": "MINGW",
     "project": "pickleshare",
-    "name": "mingw-w64-python-pickleshare"
+    "name": "mingw-w64-python-pickleshare",
+    "vendored": false
 }

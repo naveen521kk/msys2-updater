@@ -2,5 +2,6 @@
     "type": "pypi",
     "repo": "MINGW",
     "project": "iniconfig",
-    "name": "mingw-w64-python-iniconfig"
+    "name": "mingw-w64-python-iniconfig",
+    "vendored": false
 }

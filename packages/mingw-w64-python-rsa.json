@@ -2,5 +2,6 @@
     "type": "pypi",
     "repo": "MINGW",
     "project": "rsa",
-    "name": "mingw-w64-python-rsa"
+    "name": "mingw-w64-python-rsa",
+    "vendored": false
 }

@@ -1,7 +1,8 @@
 {
     "type": "github",
-    "slug":"ytdl-org/youtube-dl",
+    "slug": "ytdl-org/youtube-dl",
     "repo": "MINGW",
     "api_url": "",
-    "name": "mingw-w64-youtube-dl"
+    "name": "mingw-w64-youtube-dl",
+    "vendored": false
 }

@@ -2,5 +2,6 @@
     "type": "pypi",
     "repo": "MINGW",
     "project": "simplegeneric",
-    "name": "mingw-w64-python-simplegeneric"
+    "name": "mingw-w64-python-simplegeneric",
+    "vendored": false
 }

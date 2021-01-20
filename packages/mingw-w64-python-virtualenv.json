@@ -2,5 +2,6 @@
     "type": "pypi",
     "repo": "MINGW",
     "project": "virtualenv",
-    "name": "mingw-w64-python-virtualenv"
+    "name": "mingw-w64-python-virtualenv",
+    "vendored": false
 }

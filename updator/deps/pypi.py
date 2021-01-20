@@ -39,6 +39,9 @@ class PyPiDepsManager:
         self.url = PYPI_URL_BASE.format(
             project_name=pypi_project_name, project_version=pypi_project_version
         )
+        self.vendored = info["vendored"]
+        if self.vendored:
+            self.vendored_deps = info["vendored_deps"]
         logger.debug("API URL: %s", self.url)
         with open(REPO_PATH / info["name"] / "PKGBUILD") as f:
             self.pkgbuild = PKGBUILD(f.read())
@@ -84,6 +87,9 @@ class PyPiDepsManager:
         deps_from_pypi: T.List[str] = [
             MINGW_PACKAGE_PREFIX + "-python-" + str(i.name).replace('-','_') for i in self.deps
         ]
+        if self.vendored:
+            for i in self.vendored_deps:
+                deps_from_pypi.append(MINGW_PACKAGE_PREFIX + "-python-" + i)
         deps_in_pkgbuild = pkgbuild.depends
         deps_in_pkgbuild.sort()
         deps_from_pypi.sort()

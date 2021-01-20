@@ -2,5 +2,6 @@
     "type": "pypi",
     "repo": "MINGW",
     "project": "joblib",
-    "name": "mingw-w64-python-joblib"
+    "name": "mingw-w64-python-joblib",
+    "vendored": false
 }

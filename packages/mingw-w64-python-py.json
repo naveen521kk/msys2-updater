@@ -2,5 +2,10 @@
     "type": "pypi",
     "repo": "MINGW",
     "project": "py",
-    "name": "mingw-w64-python-py"
+    "name": "mingw-w64-python-py",
+    "vendored": true,
+    "vendored_deps": [
+        "iniconfig",
+        "apipkg"
+    ]
 }

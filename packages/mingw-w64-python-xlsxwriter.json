@@ -2,5 +2,6 @@
     "type": "pypi",
     "repo": "MINGW",
     "project": "xlsxwriter",
-    "name": "mingw-w64-python-xlsxwriter"
+    "name": "mingw-w64-python-xlsxwriter",
+    "vendored": false
 }

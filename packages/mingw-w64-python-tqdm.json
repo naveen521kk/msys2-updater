@@ -2,5 +2,6 @@
     "type": "pypi",
     "repo": "MINGW",
     "project": "tqdm",
-    "name": "mingw-w64-python-tqdm"
+    "name": "mingw-w64-python-tqdm",
+    "vendored": false
 }

@@ -2,5 +2,6 @@
     "type": "pypi",
     "repo": "MINGW",
     "project": "jedi",
-    "name": "mingw-w64-python-jedi"
+    "name": "mingw-w64-python-jedi",
+    "vendored": false
 }
