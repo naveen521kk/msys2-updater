@@ -11,6 +11,8 @@ from updator.utils import get_repo_path
 committer_email = os.getenv(
     "AUTHOR_EMAIL", "41898282+github-actions[bot]@users.noreply.github.com"
 )
+print(committer_email)
+sys.exit(0)
 PACKAGES_PATH = Path(__file__).parent.resolve().parent / "packages"
 commit_message = []
 for file in Path(PACKAGES_PATH).glob("*.json"):
