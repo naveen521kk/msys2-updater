@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-sys.path.append(Path(__file__).parent.resolve().parent)
+sys.path.append(str(Path(__file__).parent.resolve().parent))
 import json
 import os
 
