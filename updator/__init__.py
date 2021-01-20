@@ -23,6 +23,9 @@ def main():
             if info["type"] == "pypi":
                 logger.info("Checking %s method PyPi",info['name'])
                 a = PyPiHandler(info)
+                info["version"] = a.remote_version
+                with open(file,'w') as f:
+                    json.dump(info,f,indent=4)
                 Writer(info, a)
                 with open(file) as f:
                     info = json.load(f)
