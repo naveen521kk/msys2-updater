@@ -1,9 +1,13 @@
+import sys
+sys.path.append("..")
+
 import json
-from updator.utils import get_repo_path
 from pathlib import Path
 from git import Repo
 from git import Actor
 import os
+
+from updator.utils import get_repo_path
 committer_email = os.getenv("AUTHOR_EMAIL","41898282+github-actions[bot]@users.noreply.github.com")
 PACKAGES_PATH = Path(__file__).parent.resolve().parent / "packages" 
 commit_message = []
