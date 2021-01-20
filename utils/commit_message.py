@@ -22,7 +22,7 @@ for file in Path(PACKAGES_PATH).glob("*.json"):
             repo_path = get_repo_path(info)
             repo = Repo(repo_path)
             index = repo.index
-            index.add(f'{info["name"]}/PKGBUILD')
+            repo.git.add(f'{info["name"]}/PKGBUILD')
             name = info["name"].replace("mingw-w64-", "")
             commit_message = f'{name}: update to {info["version"]}'
             author = Actor(
