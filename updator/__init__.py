@@ -34,6 +34,9 @@ def main():
             elif info["type"] == "github":
                 logger.info("Checking %s method Github",info['name'])
                 a = GithubHandler(info)
+                info["version"] = a.remote_version
+                with open(file,'w') as f:
+                    json.dump(info,f,indent=4)
                 Writer(info,a)
         except Exception as e:
             console.print_exception()
