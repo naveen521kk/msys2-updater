@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "future",
+    "name": "mingw-w64-python-future",
+    "vendored": false
+}

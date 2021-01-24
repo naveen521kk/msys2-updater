@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "mimeparse",
+    "name": "mingw-w64-python-mimeparse",
+    "vendored": false
+}

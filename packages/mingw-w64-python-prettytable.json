@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "prettytable",
+    "name": "mingw-w64-python-prettytable",
+    "vendored": false
+}

@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pbr",
+    "name": "mingw-w64-python-pbr",
+    "vendored": false
+}

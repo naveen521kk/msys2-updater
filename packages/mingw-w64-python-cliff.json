@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "cliff",
+    "name": "mingw-w64-python-cliff",
+    "vendored": false
+}
