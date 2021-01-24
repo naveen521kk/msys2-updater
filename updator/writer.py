@@ -4,7 +4,7 @@ import json
 from .constants import Regex, PACKAGES_PATH
 from .handlers.handler import Handler
 from .logger import logger
-from .utils import PKGBUILD, find_checksum, get_repo_path
+from .utils import PKGBUILD, find_checksum, get_repo_path, find_checksum_from_file
 
 
 class Writer:
@@ -87,6 +87,9 @@ class Writer:
         for n in range(len(urls)):
             if urls[n][-4:] == ".sig":
                 checksums[urls[n]] = None
+                continue
+            if urls[n][-6:] == ".patch":
+                checksums[urls[n]] = find_checksum_from_file(urls[n], ctype,self.info)
                 continue
             checksums[urls[n]] = find_checksum(urls[n], ctype)
         self._checksum = checksums

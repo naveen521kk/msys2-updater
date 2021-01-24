@@ -124,7 +124,13 @@ def vercmp(v1: str, v2: str) -> int:
 def version_is_newer_than(v1: str, v2: str) -> bool:
     return vercmp(v1, v2) == 1
 
-
+def find_checksum_from_file(fname,hashtype,info):
+    path = get_repo_path(info)
+    hash = hashlib.new(hashtype)
+    with open(path / fname, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash.update(chunk)
+    return hash.hexdigest()
 def find_checksum(url, hashtype):
     logger.info("Finding checksum for URL: %s", url)
     logger.info("Hash type: %s", hashtype)
