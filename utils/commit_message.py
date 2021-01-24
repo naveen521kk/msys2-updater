@@ -24,6 +24,7 @@ for file in Path(PACKAGES_PATH).glob("*.json"):
                 index = repo.index
                 repo.git.add(f'{info["name"]}/PKGBUILD')
                 name = info["name"].replace("mingw-w64-", "")
+                print(name)
                 commit_message = f'{name}: update to {info["version"]}'
                 author = Actor(
                     "github-actions[bot]",
