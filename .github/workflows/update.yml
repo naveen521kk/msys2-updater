@@ -1,6 +1,9 @@
 name: update
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 jobs:
   update:
@@ -35,6 +38,10 @@ jobs:
       working-directory: updator
       run: |
         pip install --user -r requirements.txt
+    - name: Prepare for running Updator
+      working-directory: updator
+      run: |
+        python utils/pynamemappinggen.py ../MINGW-packages
     - name: Run Updator
       working-directory: updator
       env:

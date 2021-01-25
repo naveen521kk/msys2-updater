@@ -6,7 +6,7 @@ from ..constants import MINGW_PACKAGE_PREFIX, PYPI_URL_BASE, Regex
 from ..logger import logger
 from ..utils import PKGBUILD, get_repo_path
 from ..handlers.handler import Handler
-
+from .. import pymappings
 class PyPiDepsManager:
     def __init__(
         self,
@@ -33,6 +33,7 @@ class PyPiDepsManager:
         )
         REPO_PATH = get_repo_path(info)
         self.name = info["name"]
+        self.info = info
         self.filename = REPO_PATH / self.name / "PKGBUILD"
         self.dependecy_regex = Regex.dependency.value
         self.package_name = pypi_project_name
@@ -84,14 +85,22 @@ class PyPiDepsManager:
     def check_dep_change(self):
         """Check for dependecy in the ``PKGBUILD`` file."""
         pkgbuild = self.pkgbuild
-        deps_from_pypi: T.List[str] = [
-            MINGW_PACKAGE_PREFIX + "-python-" + str(i.name).replace('-','_') for i in self.deps
-        ]
+        info = self.info
+        #deps_from_pypi: T.List[str] = [
+        #    MINGW_PACKAGE_PREFIX + "-python-" + str(i.name).replace('-','_') for i in self.deps
+        #]
+        deps_from_pypi = []
+        for i in self.deps:
+            if i in pymappings:
+                deps_from_pypi.append(pymappings[i])
+            else:
+                deps_from_pypi.append(MINGW_PACKAGE_PREFIX + "-python-" + str(i.name))
+        
         if self.vendored:
             for i in self.vendored_deps:
                 deps_from_pypi.append(MINGW_PACKAGE_PREFIX + "-python-" + i)
         deps_in_pkgbuild = pkgbuild.depends
-        deps_in_pkgbuild.sort()
+        deps_in_pkgbuild.sort()        
         deps_from_pypi.sort()
         logger.info("Got dependency from pkgbuild: %s", deps_in_pkgbuild)
         logger.info("Got dependency from pypi: %s", deps_from_pypi)
@@ -99,6 +108,7 @@ class PyPiDepsManager:
             if "mingw-w64-x86_64-python" not in i:
                 deps_from_pypi.append(i)
         deps_from_pypi.sort()
+
         if MINGW_PACKAGE_PREFIX + "-python" in deps_in_pkgbuild:
             deps_in_pkgbuild.remove(MINGW_PACKAGE_PREFIX + "-python")
 
