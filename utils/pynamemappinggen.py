@@ -28,6 +28,6 @@ if __name__ == "__main__":
                 if "mingw-w64-python-" + realname != pkgbase:
                     final[realname] = pkgbase.replace("mingw-w64",MINGW_PACKAGE_PREFIX)
                     #final_list.append({"realname": realname, "pkgbase": pkgbase})
-    with open(Path(__file__).parent.resolve() / "pymapping.json", encoding="utf-8") as f:
+    with open(Path(__file__).parent.resolve().parent / "pymapping.json",'w',encoding="utf-8") as f:
         json.dump(final,f)
     print(json.dumps(final,indent=4))
