@@ -2,6 +2,6 @@
     "type": "pypi",
     "repo": "MINGW",
     "project": "pyparsing",
-    "name": "mingw-w64-python-cmd2",
+    "name": "mingw-w64-python-pyparsing",
     "vendored": false
 }
