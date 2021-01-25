@@ -26,11 +26,11 @@ for file in Path(PACKAGES_PATH).glob("*.json"):
                 name = info["name"].replace("mingw-w64-", "")
                 print(name)
                 commit_message = f'{name}: update to {info["version"]}'
-                author = Actor(
+                committer = Actor(
                     "github-actions[bot]",
                     "41898282+github-actions[bot]@users.noreply.github.com",
                 )
-                committer = Actor("Naveen", committer_email)
+                author = Actor("Naveen", committer_email)
                 index.commit(commit_message, author=author, committer=committer)
                 print(commit_message)
     except KeyError as e:
