@@ -188,7 +188,7 @@ class PKGBUILD:
         base += f"declare -p {variable} 2> /dev/null | grep -q 'declare \-a' && echo 1 || echo 0\n"
         with tempfile.TemporaryDirectory() as tmpdirname:
             tmpdirname = Path(".")
-            with open(Path(tmpdirname) / "var.sh", "w") as f:
+            with open(Path(tmpdirname) / "var.sh", "w",encoding="utf-8") as f:
                 f.write(base)
             out = run_command(f"bash {Path(tmpdirname).as_posix()}/var.sh", cwd=tmpdirname)
             run_command(f"rm var.sh", cwd=tmpdirname)
@@ -202,7 +202,7 @@ class PKGBUILD:
         with tempfile.TemporaryDirectory() as tmpdirname:
             #tmpdirname = Path(".")
             tmpdirname = Path(tmpdirname)
-            with open(Path(tmpdirname) / "test.sh", "w") as f:
+            with open(Path(tmpdirname) / "test.sh", "w", encoding="utf-8") as f:
                 f.write(
                     base
                     + f"declare -n tempvar={variable}\n"
