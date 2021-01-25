@@ -9,8 +9,6 @@ from .handlers.github import GithubHandler
 from .handlers.gitlab import GitlabHandler
 from .handlers.pypi import PyPiHandler
 from .deps.pypi import PyPiDepsManager
-with open(Path(__file__).parent.resolve() / "pymapping.json") as f:
-    pymappings = json.load(f)
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--debug", action="store_true", help="enable debug mode")

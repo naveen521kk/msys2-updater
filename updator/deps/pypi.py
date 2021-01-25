@@ -1,12 +1,16 @@
 import requests
 import typing as T
 from packaging.requirements import Requirement
-
+from pathlib import Path
+import json
 from ..constants import MINGW_PACKAGE_PREFIX, PYPI_URL_BASE, Regex
 from ..logger import logger
 from ..utils import PKGBUILD, get_repo_path
 from ..handlers.handler import Handler
-from .. import pymappings
+
+with open(Path(__file__).parent.resolve().parent.parent / "pymapping.json") as f:
+    pymappings = json.load(f)
+
 class PyPiDepsManager:
     def __init__(
         self,
