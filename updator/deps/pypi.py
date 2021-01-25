@@ -8,8 +8,6 @@ from ..logger import logger
 from ..utils import PKGBUILD, get_repo_path
 from ..handlers.handler import Handler
 
-with open(Path(__file__).parent.resolve().parent.parent / "pymapping.json") as f:
-    pymappings = json.load(f)
 
 class PyPiDepsManager:
     def __init__(
@@ -35,6 +33,8 @@ class PyPiDepsManager:
         logger.info(
             "Dependency solving for %s %s", pypi_project_name, pypi_project_version
         )
+        with open(Path(__file__).parent.resolve().parent.parent / "pymapping.json") as f:
+            self.pymappings = json.load(f)
         REPO_PATH = get_repo_path(info)
         self.name = info["name"]
         self.info = info
@@ -94,6 +94,7 @@ class PyPiDepsManager:
         #    MINGW_PACKAGE_PREFIX + "-python-" + str(i.name).replace('-','_') for i in self.deps
         #]
         deps_from_pypi = []
+        pymappings = self.pymappings
         for i in self.deps:
             if i in pymappings:
                 deps_from_pypi.append(pymappings[i])
