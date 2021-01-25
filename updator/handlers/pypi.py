@@ -5,12 +5,13 @@ import os
 import requests
 
 from .handler import Handler
-
+from ..logger import logger
 
 class PyPiHandler(Handler):
     def __init__(self, info) -> None:
         self.info = info
         self.api_url = f"https://pypi.org/pypi/{info['project']}/json"
+        logger.info("API URL VERSION: %s",self.api_url)
     @property
     def remote_version(self) -> str:
         if hasattr(self,'_remote_version'):
