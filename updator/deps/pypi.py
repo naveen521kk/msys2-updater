@@ -97,11 +97,11 @@ class PyPiDepsManager:
         pymappings:dict = self.pymappings
         logger.info("Pymappings are: %s",pymappings)
         for i in self.deps:
-            i = i.strip()
+            i = str(i.name)
             if i in pymappings.keys():
                 deps_from_pypi.append(pymappings[i])
             else:
-                deps_from_pypi.append(MINGW_PACKAGE_PREFIX + "-python-" + str(i.name))
+                deps_from_pypi.append(MINGW_PACKAGE_PREFIX + "-python-" + i)
         
         if self.vendored:
             for i in self.vendored_deps:
