@@ -94,9 +94,11 @@ class PyPiDepsManager:
         #    MINGW_PACKAGE_PREFIX + "-python-" + str(i.name).replace('-','_') for i in self.deps
         #]
         deps_from_pypi = []
-        pymappings = self.pymappings
+        pymappings:dict = self.pymappings
+        logger.info("Pymappings are: %s",pymappings)
         for i in self.deps:
-            if i in pymappings:
+            i = i.strip()
+            if i in pymappings.keys():
                 deps_from_pypi.append(pymappings[i])
             else:
                 deps_from_pypi.append(MINGW_PACKAGE_PREFIX + "-python-" + str(i.name))
