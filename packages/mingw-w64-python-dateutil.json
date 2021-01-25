@@ -1,7 +1,7 @@
 {
     "type": "pypi",
     "repo": "MINGW",
-    "project": "dateutil",
+    "project": "python-dateutil",
     "name": "mingw-w64-python-dateutil",
     "vendored": false
 }
