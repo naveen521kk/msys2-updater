@@ -24,9 +24,17 @@ if __name__ == "__main__":
                 with open(path / "PKGBUILD", encoding="utf-8") as f:
                     pkgbuild = PKGBUILD(f.read())
                 realname = pkgbuild._realname
+                try:
+                    pyname = pkgbuild._pyname
+                except:
+                    pyname = None
                 pkgbase = pkgbuild.pkgbase
-                if "mingw-w64-python-" + realname != pkgbase:
-                    final[realname] = pkgbase.replace("mingw-w64",MINGW_PACKAGE_PREFIX)
+                if pyname:
+                    if "mingw-w64-python-" + pyname != pkgbase:
+                        final[pyname] = pkgbase.replace("mingw-w64",MINGW_PACKAGE_PREFIX)
+                else:
+                    if "mingw-w64-python-" + realname != pkgbase:
+                        final[realname] = pkgbase.replace("mingw-w64",MINGW_PACKAGE_PREFIX)
                     #final_list.append({"realname": realname, "pkgbase": pkgbase})
     with open(Path(__file__).parent.resolve().parent / "pymapping.json",'w',encoding="utf-8") as f:
         json.dump(final,f)
