@@ -189,7 +189,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "python-gitlab"
-version = "2.5.0"
+version = "2.6.0"
 description = "Interact with GitLab API"
 category = "main"
 optional = false
@@ -197,6 +197,7 @@ python-versions = ">=3.6.0"
 
 [package.dependencies]
 requests = ">=2.22.0"
+requests-toolbelt = ">=0.9.1"
 
 [package.extras]
 autocompletion = ["argcomplete (>=1.10.0,<2)"]
@@ -227,6 +228,17 @@ urllib3 = ">=1.21.1,<1.27"
 [package.extras]
 security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
 socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
+
+[[package]]
+name = "requests-toolbelt"
+version = "0.9.1"
+description = "A utility belt for advanced users of python-requests"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+requests = ">=2.0.1,<3.0.0"
 
 [[package]]
 name = "rich"
@@ -301,7 +313,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "f84bb4cf204cb5de2c4fa3fa055be0732ca926bad0250305f13fd341041a0b23"
+content-hash = "72dfb31c6b4e77c8a82f71e5084085149ec538f8d3b556c4bcea741fe542fff0"
 
 [metadata.files]
 appdirs = [
@@ -376,8 +388,8 @@ pyparsing = [
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
 ]
 python-gitlab = [
-    {file = "python-gitlab-2.5.0.tar.gz", hash = "sha256:68b42aafd4b620ab2534ff78a52584c7f799e4e55d5ac297eab4263066e6f74b"},
-    {file = "python_gitlab-2.5.0-py3-none-any.whl", hash = "sha256:61270e1f8ac24fe248f41834c840c6465d2e0b216493d3508d296a02960122c0"},
+    {file = "python-gitlab-2.6.0.tar.gz", hash = "sha256:a862c6874524ab585b725a17b2cd2950fc09d6d74205f40a11be2a4e8f2dcaa1"},
+    {file = "python_gitlab-2.6.0-py3-none-any.whl", hash = "sha256:8f6a62b2804021416f13e91f359085f1071fb7adedfb292ef0d0877df777a075"},
 ]
 regex = [
     {file = "regex-2020.11.13-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:8b882a78c320478b12ff024e81dc7d43c1462aa4a3341c754ee65d857a521f85"},
@@ -425,6 +437,10 @@ regex = [
 requests = [
     {file = "requests-2.25.1-py2.py3-none-any.whl", hash = "sha256:c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e"},
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
+]
+requests-toolbelt = [
+    {file = "requests-toolbelt-0.9.1.tar.gz", hash = "sha256:968089d4584ad4ad7c171454f0a5c6dac23971e9472521ea3b6d49d610aa6fc0"},
+    {file = "requests_toolbelt-0.9.1-py2.py3-none-any.whl", hash = "sha256:380606e1d10dc85c3bd47bf5a6095f815ec007be7a8b69c878507068df059e6f"},
 ]
 rich = [
     {file = "rich-9.10.0-py3-none-any.whl", hash = "sha256:3070d53e3a93864de351c1091af1deb25f41e6051b33e485d4626b591c0cfdb3"},
