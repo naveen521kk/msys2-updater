@@ -1,7 +1,0 @@
-{
-    "type": "pypi",
-    "repo": "MINGW",
-    "project": "ipython",
-    "name": "mingw-w64-python-ipython",
-    "vendored": false
-}
