@@ -242,7 +242,7 @@ requests = ">=2.0.1,<3.0.0"
 
 [[package]]
 name = "rich"
-version = "9.11.0"
+version = "9.11.1"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 category = "main"
 optional = false
@@ -313,7 +313,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "c476c4b57b51f7cb13168deed9bc19e7c91d158aafdc1a435a791138b887ff3e"
+content-hash = "66707ebc35d1e2a0b97c1b3b028cf12d060c245e88a84177bfdca974e934fedb"
 
 [metadata.files]
 appdirs = [
@@ -443,8 +443,8 @@ requests-toolbelt = [
     {file = "requests_toolbelt-0.9.1-py2.py3-none-any.whl", hash = "sha256:380606e1d10dc85c3bd47bf5a6095f815ec007be7a8b69c878507068df059e6f"},
 ]
 rich = [
-    {file = "rich-9.11.0-py3-none-any.whl", hash = "sha256:a8ee22199562278d2f78148cacb2f9460ccac362cd4a40f705505b41daae60e0"},
-    {file = "rich-9.11.0.tar.gz", hash = "sha256:f8f08fdac6bd67dc2dd7fe976da702d748487aa9eb5d050c48b2321bc67ed659"},
+    {file = "rich-9.11.1-py3-none-any.whl", hash = "sha256:1f7c481be658eb27f451c3f714aec5bc1fc2431c28f89848ef589c2392171f2e"},
+    {file = "rich-9.11.1.tar.gz", hash = "sha256:86a157008d17c73ee03da80de91e09fc2f7713109ccd4e90496eeb3702bef638"},
 ]
 smmap = [
     {file = "smmap-3.0.4-py2.py3-none-any.whl", hash = "sha256:54c44c197c819d5ef1991799a7e30b662d1e520f2ac75c9efbeb54a742214cf4"},
