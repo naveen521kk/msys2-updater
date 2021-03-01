@@ -12,7 +12,7 @@ python-gitlab = "^2.6"
 requests="^2.25"
 rich = "^9.12.3"
 packaging = "^20.9"
-GitPython = "^3.1.13"
+GitPython = "^3.1.14"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^20.8b1", allow-prereleases = true}
