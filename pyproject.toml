@@ -10,7 +10,7 @@ python = "^3.7"
 PyGithub = "^1.54"
 python-gitlab = "^2.6"
 requests="^2.25"
-rich = "^9.12.3"
+rich = "^9.12.4"
 packaging = "^20.9"
 GitPython = "^3.1.14"
 
