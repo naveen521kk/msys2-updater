@@ -95,7 +95,6 @@ class PyPiDepsManager:
         #]
         deps_from_pypi = []
         pymappings:dict = self.pymappings
-        logger.info("Pymappings are: %s",pymappings)
         for i in self.deps:
             i = str(i.name)
             if i in pymappings.keys():
