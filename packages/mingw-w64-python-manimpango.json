@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "ManimPango",
+    "name": "mingw-w64-python-manimpango",
+    "vendored": false
+}
