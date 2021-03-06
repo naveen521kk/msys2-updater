@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pytest-checkdocs",
+    "name": "mingw-w64-python-pytest-checkdocs",
+    "vendored": false
+}

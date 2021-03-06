@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "paver",
+    "name": "mingw-w64-python-paver",
+    "vendored": false
+}

@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pytest-fixture-config",
+    "name": "mingw-w64-python-pytest-fixture-config",
+    "vendored": false
+}

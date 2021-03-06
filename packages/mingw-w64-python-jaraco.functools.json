@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "jaraco.functools",
+    "name": "mingw-w64-python-jaraco.functools",
+    "vendored": false
+}

@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pytest-shutil",
+    "name": "mingw-w64-python-pytest-shutil",
+    "vendored": false
+}

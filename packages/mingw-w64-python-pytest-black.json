@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pytest-black",
+    "name": "mingw-w64-python-pytest-black",
+    "vendored": false
+}

@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "path.py",
+    "name": "mingw-w64-python-path.py",
+    "vendored": false
+}

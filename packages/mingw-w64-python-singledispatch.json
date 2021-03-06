@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "singledispatch",
+    "name": "mingw-w64-python-singledispatch",
+    "vendored": false
+}

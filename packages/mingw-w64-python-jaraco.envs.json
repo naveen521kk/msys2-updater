@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "jaraco.envs",
+    "name": "mingw-w64-python-jaraco.envs",
+    "vendored": false
+}
