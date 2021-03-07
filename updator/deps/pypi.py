@@ -124,8 +124,10 @@ class PyPiDepsManager:
 
         if MINGW_PACKAGE_PREFIX + "-python" in deps_in_pkgbuild:
             deps_in_pkgbuild.remove(MINGW_PACKAGE_PREFIX + "-python")
-
-        if deps_in_pkgbuild == deps_from_pypi:
+            has_python_depends = True
+        else:
+            has_python_depends = False
+        if deps_in_pkgbuild == deps_from_pypi and has_python_depends:
             logger.info("No dependency Changes")
             return
         else:
