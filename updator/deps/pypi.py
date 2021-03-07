@@ -112,7 +112,7 @@ class PyPiDepsManager:
         except AttributeError:
             # a case where there is no depends sections
             # in PKGBUILD. It's ok to add python here directly.
-            deps_in_pkgbuild = ["mingw-w64-x86_64-python"]
+            deps_in_pkgbuild = []
         deps_in_pkgbuild.sort()
         deps_from_pypi.sort()
         logger.info("Got dependency from pkgbuild: %s", deps_in_pkgbuild)
