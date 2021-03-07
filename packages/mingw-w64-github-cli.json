@@ -1,0 +1,8 @@
+{
+    "type": "github",
+    "slug": "cli/cli",
+    "repo": "MINGW",
+    "api_url": "",
+    "name": "mingw-w64-github-cli",
+    "vendored": false
+}
