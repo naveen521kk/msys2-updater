@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "Pillow",
+    "name": "mingw-w64-python-pillow",
+    "vendored": false
+}
