@@ -33,7 +33,9 @@ class PyPiDepsManager:
         logger.info(
             "Dependency solving for %s %s", pypi_project_name, pypi_project_version
         )
-        with open(Path(__file__).parent.resolve().parent.parent / "pymapping.json") as f:
+        with open(
+            Path(__file__).parent.resolve().parent.parent / "pymapping.json"
+        ) as f:
             self.pymappings = json.load(f)
         REPO_PATH = get_repo_path(info)
         self.name = info["name"]
@@ -90,23 +92,28 @@ class PyPiDepsManager:
         """Check for dependecy in the ``PKGBUILD`` file."""
         pkgbuild = self.pkgbuild
         info = self.info
-        #deps_from_pypi: T.List[str] = [
+        # deps_from_pypi: T.List[str] = [
         #    MINGW_PACKAGE_PREFIX + "-python-" + str(i.name).replace('-','_') for i in self.deps
-        #]
+        # ]
         deps_from_pypi = []
-        pymappings:dict = self.pymappings
+        pymappings: dict = self.pymappings
         for i in self.deps:
             i = str(i.name)
             if i in pymappings.keys():
                 deps_from_pypi.append(pymappings[i])
             else:
                 deps_from_pypi.append(MINGW_PACKAGE_PREFIX + "-python-" + i)
-        
+
         if self.vendored:
             for i in self.vendored_deps:
                 deps_from_pypi.append(MINGW_PACKAGE_PREFIX + "-python-" + i)
-        deps_in_pkgbuild = pkgbuild.depends
-        deps_in_pkgbuild.sort()        
+        try:
+            deps_in_pkgbuild = pkgbuild.depends
+        except AttributeError:
+            # a case where there is no depends sections
+            # in PKGBUILD. It's ok to add python here directly.
+            deps_in_pkgbuild = ["mingw-w64-x86_64-python"]
+        deps_in_pkgbuild.sort()
         deps_from_pypi.sort()
         logger.info("Got dependency from pkgbuild: %s", deps_in_pkgbuild)
         logger.info("Got dependency from pypi: %s", deps_from_pypi)
@@ -124,8 +131,10 @@ class PyPiDepsManager:
         else:
             content = self.content
             for i in range(len(deps_from_pypi)):
-                deps_from_pypi[i] = deps_from_pypi[i].replace(MINGW_PACKAGE_PREFIX, r"${MINGW_PACKAGE_PREFIX}")
-            #if self.deps_from_pypi==[]:
+                deps_from_pypi[i] = deps_from_pypi[i].replace(
+                    MINGW_PACKAGE_PREFIX, r"${MINGW_PACKAGE_PREFIX}"
+                )
+            # if self.deps_from_pypi==[]:
             if deps_from_pypi == []:
                 deps_from_pypi.append("${MINGW_PACKAGE_PREFIX}-python")
             self.deps_from_pypi = deps_from_pypi
@@ -138,7 +147,7 @@ class PyPiDepsManager:
         final = f'depends=("'
         indent = len(final) - 1
         for n in range(len(deps)):
-            final += deps[n] + "\"" if final[-1] == "\"" else "\"" + deps[n] + "\""
+            final += deps[n] + '"' if final[-1] == '"' else '"' + deps[n] + '"'
             if n == len(deps) - 1:
                 indent = 0
             else:
