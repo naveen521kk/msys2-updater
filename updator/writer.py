@@ -85,7 +85,7 @@ class Writer:
             return self._checksum
         checksums = {}
         for n in range(len(urls)):
-            if re.match(Regex.url_check, urls[n]) is None:
+            if re.match(Regex.url_check.value, urls[n]) is None:
                 if urls[n][-4:] == ".sig":
                     checksums[urls[n]] = None
                     continue
