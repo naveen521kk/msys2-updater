@@ -3,5 +3,5 @@
     "repo": "MINGW",
     "project": "packaging",
     "name": "mingw-w64-python-packaging",
-    "vendored": false
+    "vendored": true
 }
