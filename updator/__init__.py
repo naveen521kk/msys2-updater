@@ -38,6 +38,13 @@ def main():
                 with open(file,'w') as f:
                     json.dump(info,f,indent=4)
                 Writer(info,a)
+            elif info["type"] == "gitlab":
+                logger.info("Checking %s method Gitlab",info['name'])
+                a = GitlabHandler(info)
+                info["version"] = a.remote_version
+                with open(file,'w') as f:
+                    json.dump(info,f,indent=4)
+                Writer(info,a)
         except Exception as e:
             console.print_exception()
             logging.error(e)
