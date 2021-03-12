@@ -135,7 +135,7 @@ def find_checksum(url, hashtype):
     logger.info("Finding checksum for URL: %s", url)
     logger.info("Hash type: %s", hashtype)
     con = requests.get(url)
-    assert con.status_code != 404
+    con.raise_for_status()
     file_hash = hashlib.new(hashtype)
     file_hash.update(con.content)
     return file_hash.hexdigest()
