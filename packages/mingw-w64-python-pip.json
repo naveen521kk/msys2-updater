@@ -3,5 +3,8 @@
     "repo": "MINGW",
     "project": "pip",
     "name": "mingw-w64-python-pip",
-    "vendored": false
+    "vendored": true,
+    "vendored_deps": [
+        "setuptools"
+    ]
 }
