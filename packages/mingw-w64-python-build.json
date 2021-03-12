@@ -3,5 +3,8 @@
     "repo": "MINGW",
     "project": "build",
     "name": "mingw-w64-python-build",
-    "vendored": false
+    "vendored": true,
+    "vendored_deps": [
+        "virtualenv"
+    ]
 }
