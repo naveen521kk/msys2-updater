@@ -1,0 +1,8 @@
+{
+    "type": "gitlab",
+    "id": "1515",
+    "repo": "MINGW",
+    "api_url": "https://gitlab.gnome.org",
+    "name": "mingw-w64-pango",
+    "vendored": false
+}
