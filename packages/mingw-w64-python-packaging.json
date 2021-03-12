@@ -3,5 +3,10 @@
     "repo": "MINGW",
     "project": "packaging",
     "name": "mingw-w64-python-packaging",
-    "vendored": true
+    "vendored": true,
+    "vendored_deps": [
+        "pyparsing",
+        "six",
+        "attrs"
+    ]
 }
