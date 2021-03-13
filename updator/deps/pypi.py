@@ -102,7 +102,7 @@ class PyPiDepsManager:
             if i in pymappings.keys():
                 deps_from_pypi.append(pymappings[i])
             else:
-                deps_from_pypi.append(MINGW_PACKAGE_PREFIX + "-python-" + i)
+                deps_from_pypi.append(MINGW_PACKAGE_PREFIX + "-python-" + i.lower())
 
         if self.vendored:
             for i in self.vendored_deps:
