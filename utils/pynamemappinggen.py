@@ -37,6 +37,7 @@ if __name__ == "__main__":
                         final[realname] = pkgbase.replace("mingw-w64",MINGW_PACKAGE_PREFIX)
                     #final_list.append({"realname": realname, "pkgbase": pkgbase})
     final["PrettyTable"] = MINGW_PACKAGE_PREFIX + '-python-prettytable'
+    final["jinja2"] = MINGW_PACKAGE_PREFIX + '-python-jinja'
     with open(Path(__file__).parent.resolve().parent / "pymapping.json",'w',encoding="utf-8") as f:
         json.dump(final,f)
     print(json.dumps(final,indent=4))
