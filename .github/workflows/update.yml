@@ -69,7 +69,6 @@ jobs:
       with:
           name: logs
           path: updator/*.log
-          
     - name: Check for modified files
       shell: bash
       working-directory: MINGW-packages
@@ -77,6 +76,14 @@ jobs:
       run: |
           echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
           git ls-files -m>/d/diffmod.txt
+    - name: Check Whether to Push
+      working-directory: updator
+      id: checkpush
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: |
+        output=$(python utils/check_push.py)
+        echo "::set-output name=push::$output"
     - name: Commit
       working-directory: updator
       env:
@@ -87,7 +94,7 @@ jobs:
         python utils/commit_message.py
     - name: Push changes
       uses: ad-m/github-push-action@master
-      if: steps.git-check.outputs.modified == 'true'
+      if: steps.git-check.outputs.modified == 'true' && steps.checkpush.outputs.push == 'true'
       with:
         github_token: ${{ secrets.TOKEN_PUSH }}
         branch: update
