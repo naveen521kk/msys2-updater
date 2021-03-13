@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "jinja2",
+    "name": "mingw-w64-python-jinja",
+    "vendored": false
+}

@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "markdown",
+    "name": "mingw-w64-python-markdown",
+    "vendored": false
+}

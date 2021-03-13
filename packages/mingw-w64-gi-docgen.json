@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "gi-docgen",
+    "name": "mingw-w64-gi-docgen",
+    "vendored": false
+}
