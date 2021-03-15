@@ -85,15 +85,16 @@ class Writer:
             return self._checksum
         checksums = {}
         for n in range(len(urls)):
+            if urls[n][-4:] == ".sig":
+                checksums[urls[n]] = None
+                continue
             if re.match(Regex.url_check.value, urls[n]) is None:
-                if urls[n][-4:] == ".sig":
-                    checksums[urls[n]] = None
-                    continue
-                else:
-                    checksums[urls[n]] = find_checksum_from_file(
-                        urls[n], ctype, self.info
-                    )
-                    continue
+                checksums[urls[n]] = find_checksum_from_file(
+                    urls[n],
+                    ctype,
+                    self.info,
+                )
+                continue
             checksums[urls[n]] = find_checksum(urls[n], ctype)
         self._checksum = checksums
         return self._checksum
