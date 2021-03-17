@@ -124,13 +124,16 @@ def vercmp(v1: str, v2: str) -> int:
 def version_is_newer_than(v1: str, v2: str) -> bool:
     return vercmp(v1, v2) == 1
 
-def find_checksum_from_file(fname,hashtype,info):
+
+def find_checksum_from_file(fname, hashtype, info):
     path = get_repo_path(info)
     hash = hashlib.new(hashtype)
-    with open(path /info["name"] / fname, "rb") as f:
+    with open(path / info["name"] / fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
             hash.update(chunk)
     return hash.hexdigest()
+
+
 def find_checksum(url, hashtype):
     logger.info("Finding checksum for URL: %s", url)
     logger.info("Hash type: %s", hashtype)
@@ -146,8 +149,7 @@ def get_repo_path(info):
 
 
 def run_command(command, cwd):
-    """Runs a command using subprocess
-    """
+    """Runs a command using subprocess"""
     k = shlex.split(command)
     a = subprocess.Popen(
         k,
@@ -160,6 +162,7 @@ def run_command(command, cwd):
     if stderr:
         raise Exception(stderr.decode())
     return stdout.decode()
+
 
 class PKGBUILD:
     """An utility class to get Data from the
@@ -174,33 +177,37 @@ class PKGBUILD:
     >>> a.pkgver
     1.2.3
     """
-    def __init__(self,content) -> None:
+
+    def __init__(self, content) -> None:
         self.content = content
+
     def __getattr__(self, var):
-        att= self.get_variable_from_pkgbuild(var)
+        att = self.get_variable_from_pkgbuild(var)
         if not att:
             raise AttributeError(f"No attribute {att} in PKGBUILD")
         else:
             return att
+
     def check_variable_is_array(self, variable):
         content = self.content
         base = f"#!/bin/bash\n{content}\n"
         base += f"declare -p {variable} 2> /dev/null | grep -q 'declare \-a' && echo 1 || echo 0\n"
         with tempfile.TemporaryDirectory() as tmpdirname:
-            tmpdirname = Path(".")
-            with open(Path(tmpdirname) / "var.sh", "w",encoding="utf-8") as f:
+            # tmpdirname = Path(".")
+            with open(Path(tmpdirname) / "var.sh", "w", encoding="utf-8") as f:
                 f.write(base)
-            out = run_command(f"bash {Path(tmpdirname).as_posix()}/var.sh", cwd=tmpdirname)
+            out = run_command(
+                f"bash {Path(tmpdirname).as_posix()}/var.sh", cwd=tmpdirname
+            )
             run_command(f"rm var.sh", cwd=tmpdirname)
         return bool(int(out))
-
 
     def get_variable_from_pkgbuild(self, variable):
         content = self.content
         base = f"#!/bin/bash\n{content}\n"
         base += f"isarray=$(declare -p {variable} 2> /dev/null | grep -q 'declare \-a' && echo true || echo false)\n"
         with tempfile.TemporaryDirectory() as tmpdirname:
-            #tmpdirname = Path(".")
+            # tmpdirname = Path(".")
             tmpdirname = Path(tmpdirname)
             with open(Path(tmpdirname) / "test.sh", "w", encoding="utf-8") as f:
                 f.write(
@@ -219,7 +226,9 @@ class PKGBUILD:
                         """
                     )
                 )
-            out = run_command(f"bash {Path(tmpdirname).as_posix()}/test.sh", cwd=tmpdirname)
+            out = run_command(
+                f"bash {Path(tmpdirname).as_posix()}/test.sh", cwd=tmpdirname
+            )
             run_command(f"rm test.sh", cwd=tmpdirname)
             out = out[:-1]
             if self.check_variable_is_array(variable):

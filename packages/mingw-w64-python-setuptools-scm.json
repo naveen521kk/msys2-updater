@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "setuptools-scm",
+    "name": "mingw-w64-python-setuptools-scm",
+    "vendored": false
+}

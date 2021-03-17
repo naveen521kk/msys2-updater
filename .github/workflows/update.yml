@@ -52,7 +52,7 @@ jobs:
       id: cache
       with:
         path: updator/pymapping.json
-        key: ${{ steps.check.outputs.commit }}-1
+        key: ${{ steps.check.outputs.commit }}
     - name: Prepare for running Updator
       if: steps.cache.outputs.cache-hit != 'true'
       working-directory: updator
