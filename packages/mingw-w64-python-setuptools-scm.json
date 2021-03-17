@@ -3,5 +3,8 @@
     "repo": "MINGW",
     "project": "setuptools-scm",
     "name": "mingw-w64-python-setuptools-scm",
-    "vendored": false
+    "vendored": true,
+    "vendored_deps": [
+        "toml"
+    ]
 }
