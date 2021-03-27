@@ -1,0 +1,11 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "urllib3",
+    "name": "mingw-w64-python-urllib3",
+    "vendored": true,
+    "vendored_deps": [
+        "certifi",
+        "idna"
+    ]
+}

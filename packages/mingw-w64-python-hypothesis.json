@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "hypothesis",
+    "name": "mingw-w64-python-hypothesis",
+    "vendored": false
+}
