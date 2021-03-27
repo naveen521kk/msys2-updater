@@ -9,6 +9,7 @@ import shlex
 import tempfile
 import textwrap
 from pathlib import Path
+from distutils.version import Version
 
 
 def vercmp(v1: str, v2: str) -> int:
@@ -123,6 +124,47 @@ def vercmp(v1: str, v2: str) -> int:
 
 def version_is_newer_than(v1: str, v2: str) -> bool:
     return vercmp(v1, v2) == 1
+
+
+class VersionSort(Version):
+    """VersionSort, compare two version using ``>`` and ``<``
+    using the previously defined version comparing functions.
+
+    This inherits from ``distutils.version.Version``, when it is
+    depreciated, compatibity code should be added.
+    This uses `version_is_newer_than` to check whether the version
+    passed here is newer than the other, to which comparing to.
+    This is helpful when using ``list.sort(key=VersionSort)``.
+
+    Examples
+    ========
+
+    >>> a = VersionSort("1.0.0")
+    >>> b = VersionSort("2.0.0")
+    >>> a > b
+    False
+    >>> a < b
+    True
+    >>> c = ['1.0.0','1.1.0','1.0.1','1.0.2','1.0.3','1.1.3','1.1.2']
+    >>> c.sort(key=VersionSort)
+    >>> c
+    ['1.0.0', '1.0.1', '1.0.2', '1.0.3', '1.1.0', '1.1.2', '1.1.3']
+    """
+
+    def parse(self, vstring):
+        self.version = vstring
+
+    def __str__(self):
+        return self.versions
+
+    def _cmp(self, other):
+        if isinstance(other, str):
+            other = VersionSort(other)
+        elif not isinstance(other, VersionSort):
+            return NotImplemented
+        if version_is_newer_than(self.version, other.version):
+            return 1
+        return -1
 
 
 def find_checksum_from_file(fname, hashtype, info):

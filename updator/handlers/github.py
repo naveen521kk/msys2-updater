@@ -5,6 +5,7 @@ import os
 from github import Github
 
 from .handler import Handler
+from ..utils import VersionSort
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", None)
 
@@ -19,12 +20,13 @@ class GithubHandler(Handler):
 
     @property
     def remote_version(self) -> None:
-        if hasattr(self,'_remote_version'):
+        if hasattr(self, "_remote_version"):
             return self._remote_version
         gh = self.gh
         info = self.info
         repo = gh.get_repo(info["slug"])
-        latest = repo.get_tags()[0]
-        version = latest.name if latest.name[0]!="v" else latest.name[1:]
+        versions = repo.get_tags()
+        latest = versions.sort(key=VersionSort)[-1]
+        version = latest.name if latest.name[0] != "v" else latest.name[1:]
         self._remote_version = version
         return version

@@ -5,6 +5,7 @@ import os
 from gitlab import Gitlab
 
 from .handler import Handler
+from ..utils import VersionSort
 
 GITLAB_TOKEN = os.getenv("GITLAB_TOKEN", None)
 
@@ -19,12 +20,13 @@ class GitlabHandler(Handler):
 
     @property
     def remote_version(self) -> None:
-        if hasattr(self,'_remote_version'):
+        if hasattr(self, "_remote_version"):
             return self._remote_version
         gl = self.gl
         info = self.info
         repo = gl.projects.get(info["id"])
-        latest = repo.tags.list()[0]
-        version = latest.name if latest.name[0]!="v" else latest.name[1:]
+        versions = repo.get_tags()
+        latest = versions.sort(key=VersionSort)[-1]
+        version = latest.name if latest.name[0] != "v" else latest.name[1:]
         self._remote_version = version
         return version
