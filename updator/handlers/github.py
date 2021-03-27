@@ -25,8 +25,9 @@ class GithubHandler(Handler):
         gh = self.gh
         info = self.info
         repo = gh.get_repo(info["slug"])
-        versions = repo.get_tags()
-        latest = versions.sort(key=VersionSort)[-1]
-        version = latest.name if latest.name[0] != "v" else latest.name[1:]
+        versions = repo.get_tags()[:20]
+        version_list = [v.name if v.name[0] != "v" else v.name[1:] for v in versions]
+        version_list.sort(key=VersionSort)
+        version = version_list[-1]
         self._remote_version = version
         return version
