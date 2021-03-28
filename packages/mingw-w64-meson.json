@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "meson",
+    "name": "mingw-w64-meson",
+    "vendored": false
+}
