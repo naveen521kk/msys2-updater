@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pygobject",
+    "name": "mingw-w64-pygobject",
+    "vendored": false
+}
