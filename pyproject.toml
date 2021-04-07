@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "Update packages in msys2 repos."
 authors = ["Naveen M K <naveen@syrusdark.website>"]
 license = "MIT"
+packages = [
+    { include = "updator" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
