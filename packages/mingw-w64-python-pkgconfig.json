@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pkgconfig",
+    "name": "mingw-w64-python-pkgconfig",
+    "vendored": false
+}

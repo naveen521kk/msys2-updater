@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "sphinxcontrib-qthelp",
+    "name": "mingw-w64-python-sphinxcontrib-qthelp",
+    "vendored": false
+}

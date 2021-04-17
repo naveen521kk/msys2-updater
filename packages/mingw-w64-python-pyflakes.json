@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "pyflakes",
+    "name": "mingw-w64-python-pyflakes",
+    "vendored": false
+}

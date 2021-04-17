@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "html5lib",
+    "name": "mingw-w64-python-html5lib",
+    "vendored": false
+}

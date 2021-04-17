@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "sphinxcontrib-jsmath",
+    "name": "mingw-w64-python-sphinxcontrib-jsmath",
+    "vendored": false
+}

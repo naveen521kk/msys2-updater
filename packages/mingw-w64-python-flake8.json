@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "flake8",
+    "name": "mingw-w64-python-flake8",
+    "vendored": false
+}

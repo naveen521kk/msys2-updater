@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "ftfy",
+    "name": "mingw-w64-python-ftfy",
+    "vendored": false
+}
