@@ -27,13 +27,13 @@ class GithubHandler(Handler):
         repo = gh.get_repo(info["slug"])
         releases = repo.get_releases()
         if releases.totalCount != 0:
-            releases = repo.get_releases()[:20]
+            releases = repo.get_releases()[:10]
             version_list=[]
             for v in releases:
                 if not v.prerelease:
                     version_list.append(v.tag_name if v.tag_name[0] != "v" else v.tag_name[1:])
         else:
-            versions = repo.get_tags()[:20]
+            versions = repo.get_tags()[:10]
             version_list = [v.name if v.name[0] != "v" else v.name[1:] for v in versions]
         version_list.sort(key=VersionSort)
         version = version_list[-1]
