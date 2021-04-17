@@ -4,13 +4,16 @@ version = "0.1.0"
 description = "Update packages in msys2 repos."
 authors = ["Naveen M K <naveen@syrusdark.website>"]
 license = "MIT"
+packages = [
+    { include = "updator" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
 PyGithub = "^1.54"
 python-gitlab = "^2.6"
 requests="^2.25"
-rich = "^9.13.0"
+rich = "^10.1.0"
 packaging = "^20.9"
 GitPython = "^3.1.14"
 

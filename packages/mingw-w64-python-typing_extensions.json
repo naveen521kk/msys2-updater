@@ -1,0 +1,7 @@
+{
+    "type": "pypi",
+    "repo": "MINGW",
+    "project": "typing-extensions",
+    "name": "mingw-w64-python-typing_extensions",
+    "vendored": false
+}
