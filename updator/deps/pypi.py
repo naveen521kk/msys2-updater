@@ -33,6 +33,7 @@ class PyPiDepsManager:
             A copy of the json dict.
         """
         pypi_project_name = info["project"]
+        self.pypi_project_name = pypi_project_name
         pypi_project_version = handler.remote_version
         logger.info(
             "Dependency solving for %s %s", pypi_project_name, pypi_project_version
@@ -79,7 +80,7 @@ class PyPiDepsManager:
         self._content = content
 
     def get_deps_method_johnnydep(self):
-        name = self.name
+        name = self.pypi_project_name
         self.deps = [d.name for d in JohnnyDist(name).children]
 
     def query_pypi(self):
