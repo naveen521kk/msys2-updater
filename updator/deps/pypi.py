@@ -1,12 +1,16 @@
-import requests
-import typing as T
-from packaging.requirements import Requirement
-from pathlib import Path
+
 import json
+import typing as T
+from pathlib import Path
+
+import requests
+from johnnydep import JohnnyDist
+from packaging.requirements import Requirement
+
 from ..constants import MINGW_PACKAGE_PREFIX, PYPI_URL_BASE, Regex
-from ..logger import logger
-from ..utils import PKGBUILD, get_repo_path
 from ..handlers.handler import Handler
+from ..logger import console, logger
+from ..utils import PKGBUILD, get_repo_path
 
 
 class PyPiDepsManager:
@@ -53,7 +57,12 @@ class PyPiDepsManager:
         with open(REPO_PATH / info["name"] / "PKGBUILD") as f:
             self.pkgbuild = PKGBUILD(f.read())
         if handler.update:
-            self.query_pypi()
+            try:
+                self.get_deps_method_johnnydep()
+            except Exception as e:
+                console.print_exception()
+                logger.error("Johnnydep Failed. Using PyPI API.")
+                self.query_pypi()
             self.check_dep_change()
             self.finalise_content()
 
@@ -68,6 +77,10 @@ class PyPiDepsManager:
     @content.setter
     def content(self, content):
         self._content = content
+
+    def get_deps_method_johnnydep(self):
+        name = self.name
+        self.deps = [d.name for d in JohnnyDist(name).children]
 
     def query_pypi(self):
         logger.info("Querying PyPI")
