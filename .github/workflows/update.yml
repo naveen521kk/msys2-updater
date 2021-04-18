@@ -2,7 +2,7 @@ name: update
 
 on:
   schedule:
-  - cron: "0 12 * * *"
+    - cron: "0 12 * * *"
   push:
     branches:
       - main
@@ -11,95 +11,95 @@ jobs:
   update:
     runs-on: windows-latest
     env:
-      POETRY_VIRTUALENVS_CREATE: false
       PYTHONIOENCODING: utf-8
+      PYTHONUTF8: 1
     defaults:
       run:
-        shell: msys2 {0}
+        shell: bash
     steps:
-    - uses: msys2/setup-msys2@v2
-      with:
-        release: false
-        install: >-
-          mingw-w64-x86_64-python
-          mingw-w64-x86_64-python-pip
-          mingw-w64-x86_64-python-wrapt
-          mingw-w64-x86_64-python-yaml
-          mingw-w64-x86_64-python-rich
-          git
-    - uses: actions/checkout@v2
-      with:
-        path: updator
-    - name: Clone MINGW
-      uses: actions/checkout@v2
-      with:
-        repository: msys2/MINGW-packages
-        ref: master
-        path: "MINGW-packages"
-        persist-credentials: false
-        fetch-depth: 0
-    - name: Install dependencies
-      working-directory: updator
-      run: |
-        pip install --user -r requirements.txt
-    - name: Get Commit Hash
-      id: check
-      shell: pwsh
-      working-directory: MINGW-packages
-      run: |
-        $commitHash = git log -n 1  --pretty=format:"%H"
-        echo "::set-output name=commit::$commitHash"
-    - name: Cache multiple paths
-      uses: actions/cache@v2
-      id: cache
-      with:
-        path: updator/pymapping.json
-        key: ${{ steps.check.outputs.commit }}
-    - name: Prepare for running Updator
-      if: steps.cache.outputs.cache-hit != 'true'
-      working-directory: updator
-      run: |
-        python utils/pynamemappinggen.py ../MINGW-packages
-    - name: Run Updator
-      working-directory: updator
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-      run: |
-        PYTHONIOENCODING=utf-8 python -m updator
-    - name: "Upload logs"
-      uses: actions/upload-artifact@v2
-      with:
+      # - uses: msys2/setup-msys2@v2
+      #   with:
+      #     release: false
+      #     install: >-
+      #       mingw-w64-x86_64-python
+      #       mingw-w64-x86_64-python-pip
+      #       git
+      - uses: actions/checkout@v2
+        with:
+          path: updator
+      - name: Clone MINGW
+        uses: actions/checkout@v2
+        with:
+          repository: msys2/MINGW-packages
+          ref: master
+          path: "MINGW-packages"
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        working-directory: updator
+        run: |
+          pip install --user -r requirements.txt
+      - name: Get Commit Hash
+        id: check
+        shell: pwsh
+        working-directory: MINGW-packages
+        run: |
+          $commitHash = git log -n 1  --pretty=format:"%H"
+          echo "::set-output name=commit::$commitHash"
+      - name: Cache multiple paths
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: updator/pymapping.json
+          key: ${{ steps.check.outputs.commit }}
+      - name: Prepare for running Updator
+        if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: updator
+        run: |
+          python utils/pynamemappinggen.py ../MINGW-packages
+      - name: Run Updator
+        working-directory: updator
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          PYTHONIOENCODING=utf-8 python -m updator
+      - name: "Upload logs"
+        uses: actions/upload-artifact@v2
+        with:
           name: logs
           path: updator/*.log
-    - name: Check for modified files
-      shell: bash
-      working-directory: MINGW-packages
-      id: git-check
-      run: |
+      - name: Check for modified files
+        shell: bash
+        working-directory: MINGW-packages
+        id: git-check
+        run: |
           echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
           git ls-files -m>/d/diffmod.txt
-    - name: Check Whether to Push
-      working-directory: updator
-      id: checkpush
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-      run: |
-        output=$(python utils/check_push.py)
-        echo "::set-output name=push::$output"
-    - name: Commit
-      working-directory: updator
-      env:
-        commit_message: ${{ steps.message.outputs.commit_message }}
-        AUTHOR_EMAIL: ${{ secrets.AUTHOR_EMAIL }}
-      if: steps.git-check.outputs.modified == 'true'
-      run: |
-        python utils/commit_message.py
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      if: steps.git-check.outputs.modified == 'true' && steps.checkpush.outputs.push == 'true'
-      with:
-        github_token: ${{ secrets.TOKEN_PUSH }}
-        branch: update
-        force: true
-        directory: MINGW-packages
-        repository: naveen521kk/MINGW-packages
+      - name: Check Whether to Push
+        working-directory: updator
+        id: checkpush
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          output=$(python utils/check_push.py)
+          echo "::set-output name=push::$output"
+      - name: Commit
+        working-directory: updator
+        env:
+          commit_message: ${{ steps.message.outputs.commit_message }}
+          AUTHOR_EMAIL: ${{ secrets.AUTHOR_EMAIL }}
+        if: steps.git-check.outputs.modified == 'true'
+        run: |
+          python utils/commit_message.py
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        if: steps.git-check.outputs.modified == 'true' && steps.checkpush.outputs.push == 'true'
+        with:
+          github_token: ${{ secrets.TOKEN_PUSH }}
+          branch: update
+          force: true
+          directory: MINGW-packages
+          repository: naveen521kk/MINGW-packages
