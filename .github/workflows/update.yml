@@ -9,18 +9,24 @@ on:
   workflow_dispatch:
 jobs:
   update:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     env:
       POETRY_VIRTUALENVS_CREATE: false
       PYTHONIOENCODING: utf-8
+    defaults:
+      run:
+        shell: msys2 {0}
     steps:
-    # - uses: msys2/setup-msys2@v2
-    #   with:
-    #     release: false
-    #     install: >-
-    #       mingw-w64-x86_64-python
-    #       mingw-w64-x86_64-python-pip
-    #       git
+    - uses: msys2/setup-msys2@v2
+      with:
+        release: false
+        install: >-
+          mingw-w64-x86_64-python
+          mingw-w64-x86_64-python-pip
+          mingw-w64-x86_64-python-wrapt
+          mingw-w64-x86_64-python-yaml
+          mingw-w64-x86_64-python-rich
+          git
     - uses: actions/checkout@v2
       with:
         path: updator
@@ -32,19 +38,16 @@ jobs:
         path: "MINGW-packages"
         persist-credentials: false
         fetch-depth: 0
-    - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-          python-version: 3.8
     - name: Install dependencies
       working-directory: updator
       run: |
         pip install --user -r requirements.txt
     - name: Get Commit Hash
       id: check
+      shell: pwsh
       working-directory: MINGW-packages
       run: |
-        commitHash=$(git log -n 1  --pretty=format:"%H")
+        $commitHash = git log -n 1  --pretty=format:"%H"
         echo "::set-output name=commit::$commitHash"
     - name: Cache multiple paths
       uses: actions/cache@v2
@@ -62,7 +65,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
       run: |
-        python -m updator
+        PYTHONIOENCODING=utf-8 python -m updator
     - name: "Upload logs"
       uses: actions/upload-artifact@v2
       with:
