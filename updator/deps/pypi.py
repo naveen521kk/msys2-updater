@@ -1,4 +1,3 @@
-
 import json
 import typing as T
 from pathlib import Path
@@ -81,7 +80,18 @@ class PyPiDepsManager:
 
     def get_deps_method_johnnydep(self):
         name = self.pypi_project_name
-        self.deps = [d.name for d in JohnnyDist(name).children]
+        deps_req = []
+        for dep in JohnnyDist(name).requires:
+            a = Requirement(dep)
+            if a.marker:
+                if "extra" in str(a.marker):
+                    continue
+                if a.marker.evaluate():
+                    deps_req.append(a)
+            else:
+                deps_req.append(a)
+            logger.debug("Got dependency:%s", dep)
+        self.deps = deps_req
 
     def query_pypi(self):
         logger.info("Querying PyPI")
