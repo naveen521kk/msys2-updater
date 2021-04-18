@@ -24,8 +24,8 @@ jobs:
           mingw-w64-x86_64-python
           mingw-w64-x86_64-python-pip
           mingw-w64-x86_64-python-wrapt
-          pacman -S mingw-w64-x86_64-python-yaml
-          pacman -S mingw-w64-x86_64-python-rich
+          mingw-w64-x86_64-python-yaml
+          mingw-w64-x86_64-python-rich
           git
     - uses: actions/checkout@v2
       with:
