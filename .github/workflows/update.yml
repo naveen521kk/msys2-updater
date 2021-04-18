@@ -74,6 +74,7 @@ jobs:
       id: git-check
       run: |
           echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+          git ls-files -m>/d/diffmod.txt
     - name: Check Whether to Push
       working-directory: updator
       id: checkpush

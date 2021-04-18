@@ -270,7 +270,7 @@ class PKGBUILD:
             out = run_command(
                 f"bash {Path(tmpdirname).as_posix()}/test.sh", cwd=tmpdirname
             )
-            run_command(f"rm -f {Path(tmpdirname).as_posix()}/test.sh", cwd=tmpdirname)
+            run_command(f"rm test.sh", cwd=tmpdirname)
             out = out[:-1]
             if self.check_variable_is_array(variable):
                 out = out.split("\n")
