@@ -91,7 +91,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
       run: |
-        output=$(python utils/check_push.py)
+        output=$(py -3.8 utils/check_push.py)
         echo "::set-output name=push::$output"
     - name: Commit
       working-directory: updator
