@@ -63,7 +63,7 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       working-directory: updator
       run: |
-        python utils/pynamemappinggen.py ../MINGW-packages
+        py utils/pynamemappinggen.py ../MINGW-packages
     - name: Run Updator
       working-directory: updator
       env:
@@ -97,7 +97,7 @@ jobs:
         AUTHOR_EMAIL: ${{ secrets.AUTHOR_EMAIL }}
       if: steps.git-check.outputs.modified == 'true'
       run: |
-        python utils/commit_message.py
+        py utils/commit_message.py
     - name: Push changes
       uses: ad-m/github-push-action@master
       if: steps.git-check.outputs.modified == 'true' && steps.checkpush.outputs.push == 'true'
