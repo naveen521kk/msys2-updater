@@ -15,7 +15,7 @@ python-gitlab = "^2.6"
 requests="^2.25"
 rich = "^10.1.0"
 packaging = "^20.9"
-GitPython = "^3.1.14"
+GitPython = "^3.1.15"
 johnnydep = "^1.7"
 
 [tool.poetry.dev-dependencies]
