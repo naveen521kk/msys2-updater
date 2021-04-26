@@ -10,7 +10,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
-PyGithub = "^1.54"
+PyGithub = "^1.55"
 python-gitlab = "^2.7"
 requests="^2.25"
 rich = "^10.1.0"
