@@ -302,7 +302,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "python-gitlab"
-version = "2.7.0"
+version = "2.7.1"
 description = "Interact with GitLab API"
 category = "main"
 optional = false
@@ -639,8 +639,8 @@ pyparsing = [
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
 ]
 python-gitlab = [
-    {file = "python-gitlab-2.7.0.tar.gz", hash = "sha256:94ad2dcdebc246d07c50d180116bc19a652b01bf6a54b3dfa49d2451bc2f31b0"},
-    {file = "python_gitlab-2.7.0-py3-none-any.whl", hash = "sha256:aa24dcd6e6ea990db202f1b39ef9756fd53a8ecbbbed47413689627157d9d870"},
+    {file = "python-gitlab-2.7.1.tar.gz", hash = "sha256:e1f9234a3ee7fbcf9ab1a5cb8b935ae58fdab29af9832ae060bf74d88bac8a7c"},
+    {file = "python_gitlab-2.7.1-py3-none-any.whl", hash = "sha256:b1dbb66f53ad7cf33fbdce8e9e7e6a09b18c75a9c506b099af1f6f9191542cfb"},
 ]
 pyyaml = [
     {file = "PyYAML-5.4.1-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:3b2b1824fe7112845700f815ff6a489360226a5609b96ec2190a45e62a9fc922"},
