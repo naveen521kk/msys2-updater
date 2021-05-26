@@ -5,6 +5,7 @@
     "name": "mingw-w64-python-pip",
     "vendored": true,
     "vendored_deps": [
-        "setuptools"
+        "setuptools",
+        "distlib"
     ]
 }
