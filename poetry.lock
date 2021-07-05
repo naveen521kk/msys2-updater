@@ -202,11 +202,11 @@ pyyaml = "*"
 
 [[package]]
 name = "packaging"
-version = "20.9"
+version = "21.0"
 description = "Core utilities for Python packages"
 category = "main"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+python-versions = ">=3.6"
 
 [package.dependencies]
 pyparsing = ">=2.0.2"
@@ -478,7 +478,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "dc35da91059e8716f20e21a3dbc854146de2cf764924e8a3ec1c9becccd113ad"
+content-hash = "d41dbc510498b55465c9f3b72686b336b6cd015d42d3f5a1125e16c642404eeb"
 
 [metadata.files]
 anytree = [
@@ -600,8 +600,8 @@ oyaml = [
     {file = "oyaml-1.0.tar.gz", hash = "sha256:ed8fc096811f4763e1907dce29c35895d6d5936c4d0400fe843a91133d4744ed"},
 ]
 packaging = [
-    {file = "packaging-20.9-py2.py3-none-any.whl", hash = "sha256:67714da7f7bc052e064859c05c595155bd1ee9f69f76557e21f051443c20947a"},
-    {file = "packaging-20.9.tar.gz", hash = "sha256:5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"},
+    {file = "packaging-21.0-py3-none-any.whl", hash = "sha256:c86254f9220d55e31cc94d69bade760f0847da8000def4dfe1c6b872fd14ff14"},
+    {file = "packaging-21.0.tar.gz", hash = "sha256:7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"},
 ]
 pathspec = [
     {file = "pathspec-0.8.1-py2.py3-none-any.whl", hash = "sha256:aa0cb481c4041bf52ffa7b0d8fa6cd3e88a2ca4879c533c9153882ee2556790d"},
