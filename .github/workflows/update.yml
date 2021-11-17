@@ -31,6 +31,9 @@ jobs:
     - uses: actions/checkout@v2
       with:
         path: updator
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
     - name: Clone MINGW
       uses: actions/checkout@v2
       with:
@@ -48,7 +51,7 @@ jobs:
     - name: Install dependencies
       working-directory: updator
       run: |
-        py -3.8 -m pip install --user -r requirements.txt
+        py -m pip install --user -r requirements.txt
     - name: Get Commit Hash
       id: check
       shell: pwsh
@@ -66,13 +69,13 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       working-directory: updator
       run: |
-        py -3.8 utils/pynamemappinggen.py ../MINGW-packages
+        py utils/pynamemappinggen.py ../MINGW-packages
     - name: Run Updator
       working-directory: updator
       env:
         GITHUB_TOKEN: ${{ github.token }}
       run: |
-        py -3.8 -m updator
+        py -m updator
     - name: "Upload logs"
       uses: actions/upload-artifact@v2
       with:
@@ -91,7 +94,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
       run: |
-        output=$(py -3.8 utils/check_push.py)
+        output=$(py utils/check_push.py)
         echo "::set-output name=push::$output"
     - name: Commit
       working-directory: updator
@@ -100,7 +103,7 @@ jobs:
         AUTHOR_EMAIL: ${{ secrets.AUTHOR_EMAIL }}
       if: steps.git-check.outputs.modified == 'true'
       run: |
-        py -3.8 utils/commit_message.py
+        py utils/commit_message.py
     - name: Push changes
       uses: ad-m/github-push-action@master
       if: steps.git-check.outputs.modified == 'true' && steps.checkpush.outputs.push == 'true'
