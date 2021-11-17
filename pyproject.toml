@@ -9,7 +9,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.9"
 PyGithub = "^1.55"
 python-gitlab = "^2.10"
 requests="^2.26"
@@ -17,6 +17,7 @@ rich = "^10.14.0"
 packaging = "^21.2"
 GitPython = "^3.1.24"
 johnnydep = "^1.10"
+pipgrip = "^0.6"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.10b0", allow-prereleases = true}
