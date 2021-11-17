@@ -1,9 +1,10 @@
 import logging
+
 from rich.console import Console
 from rich.logging import RichHandler
 from rich.theme import Theme
-import os
-logger = logging.getLogger("msys2-updator")
+
+logger = logging.getLogger("msys2-updater")
 
 custom_theme = Theme(
     {
