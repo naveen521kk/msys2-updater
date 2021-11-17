@@ -4,5 +4,7 @@
     "repo": "MINGW",
     "api_url": "https://gitlab.gnome.org",
     "name": "mingw-w64-pango",
-    "vendored": false
+    "vendored": false,
+    "version": "1.49.3",
+    "update": true
 }

@@ -8,11 +8,11 @@ logger = logging.getLogger("msys2-updator")
 custom_theme = Theme(
     {
         "log.level": "magenta",
-        "repr.number": "bold green blink",
-        "log.message": "white on red",
-        "logging.level.info": "green on white",
-        "log.time":"green dim",
-        "logging.level.notset":"red on white"
+        "repr.number": "red",
+        "log.message": "cyan",
+        "logging.level.info": "green on black",
+        "log.time":"green",
+        "logging.level.notset":"red on black"
     },
 )
 
@@ -20,7 +20,7 @@ console=Console(theme=custom_theme, force_terminal=True, color_system="truecolor
 
 logger.addHandler(
     RichHandler(
-        show_time=False,
+        show_time=True,
         show_path=False,
         console=console,
         rich_tracebacks=True

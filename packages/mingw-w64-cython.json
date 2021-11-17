@@ -3,5 +3,6 @@
     "repo": "MINGW",
     "project": "cython",
     "name": "mingw-w64-cython",
-    "vendored": false
+    "vendored": false,
+    "version": "0.29.24"
 }

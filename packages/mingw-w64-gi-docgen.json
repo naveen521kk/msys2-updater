@@ -3,5 +3,6 @@
     "repo": "MINGW",
     "project": "gi-docgen",
     "name": "mingw-w64-gi-docgen",
-    "vendored": false
+    "vendored": false,
+    "version": "2021.8"
 }

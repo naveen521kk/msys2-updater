@@ -4,5 +4,6 @@
     "repo": "MINGW",
     "api_url": "",
     "name": "mingw-w64-github-cli",
-    "vendored": false
+    "vendored": false,
+    "version": "2.2.0"
 }

@@ -4,5 +4,6 @@
     "repo": "MINGW",
     "api_url": "https://gitlab.gnome.org",
     "name": "mingw-w64-glib2",
-    "vendored": false
+    "vendored": false,
+    "version": "2.70.1"
 }

@@ -6,5 +6,6 @@
     "vendored": true,
     "vendored_deps": [
         "cairo"
-    ]
+    ],
+    "version": "3.42.0"
 }
