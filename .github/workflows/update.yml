@@ -51,7 +51,7 @@ jobs:
     - name: Install dependencies
       working-directory: updater
       run: |
-        py -m pip install --user -r requirements.txt
+        py -3.9 -m pip install --user -r requirements.txt
     - name: Get Commit Hash
       id: check
       shell: pwsh
@@ -69,13 +69,13 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       working-directory: updater
       run: |
-        py utils/pynamemappinggen.py ../MINGW-packages
+        py -3.9 utils/pynamemappinggen.py ../MINGW-packages
     - name: Run updater
       working-directory: updater
       env:
         GITHUB_TOKEN: ${{ github.token }}
       run: |
-        py -m updater
+        py -3.9 -m updater
     - name: "Upload logs"
       uses: actions/upload-artifact@v2
       with:
@@ -94,7 +94,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
       run: |
-        output=$(py utils/check_push.py)
+        output=$(py -3.9 utils/check_push.py)
         echo "::set-output name=push::$output"
     - name: Commit
       working-directory: updater
@@ -103,7 +103,7 @@ jobs:
         AUTHOR_EMAIL: ${{ secrets.AUTHOR_EMAIL }}
       if: steps.git-check.outputs.modified == 'true'
       run: |
-        py utils/commit_message.py
+        py -3.9 utils/commit_message.py
     - name: Push changes
       uses: ad-m/github-push-action@master
       if: steps.git-check.outputs.modified == 'true' && steps.checkpush.outputs.push == 'true'
