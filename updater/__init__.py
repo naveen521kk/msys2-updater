@@ -1,17 +1,20 @@
 import argparse
 import json
-from .logger import logger,console
-from pathlib import Path
-from updator.writer import Writer
 import logging
+from pathlib import Path
+
 from .constants import PACKAGES_PATH
+from .deps.pypi import PyPiDepsManager
 from .handlers.github import GithubHandler
 from .handlers.gitlab import GitlabHandler
 from .handlers.pypi import PyPiHandler
-from .deps.pypi import PyPiDepsManager
+from .logger import console, logger
+from .writer import Writer
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--debug", action="store_true", help="enable debug mode")
+    parser.add_argument("--debug", action="store_true", help="enable debug mode",)
     args = parser.parse_args()
 
 

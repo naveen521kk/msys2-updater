@@ -1,4 +1,4 @@
-# run from the root of updator repo.
+# run from the root of updater repo.
 # pass the repo path
 
 import sys
@@ -9,8 +9,8 @@ sys.path.append(str(Path(__file__).parent.resolve().parent))
 import argparse
 import json
 
-from updator.constants import MINGW_PACKAGE_PREFIX
-from updator.utils import PKGBUILD
+from updater.constants import MINGW_PACKAGE_PREFIX
+from updater.utils import PKGBUILD
 
 final = {}
 

@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "msys2-updator"
+name = "msys2-updater"
 version = "0.1.0"
 description = "Update packages in msys2 repos."
 authors = ["Naveen M K <naveen@syrusdark.website>"]
 license = "MIT"
 packages = [
-    { include = "updator" },
+    { include = "updater" },
 ]
 
 [tool.poetry.dependencies]

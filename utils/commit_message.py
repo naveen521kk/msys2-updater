@@ -6,7 +6,7 @@ import json
 import os
 
 from git import Actor, Repo
-from updator.utils import get_repo_path
+from updater.utils import get_repo_path
 
 committer_email = os.getenv(
     "AUTHOR_EMAIL", "41898282+github-actions[bot]@users.noreply.github.com"
