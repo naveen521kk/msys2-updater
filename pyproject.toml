@@ -2,7 +2,7 @@
 name = "msys2-updater"
 version = "0.1.0"
 description = "Update packages in msys2 repos."
-authors = ["Naveen M K <naveen@syrusdark.website>"]
+authors = ["Naveen M K <naveen521kk@gmail.com>"]
 license = "MIT"
 packages = [
     { include = "updater" },
