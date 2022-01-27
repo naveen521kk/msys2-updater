@@ -15,7 +15,7 @@ python-gitlab = "^3.1"
 requests="^2.27"
 rich = "^11.0.0"
 packaging = "^21.3"
-GitPython = "^3.1.24"
+GitPython = "^3.1.26"
 johnnydep = "^1.10"
 pipgrip = "^0.6"
 
