@@ -216,7 +216,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
 [[package]]
 name = "pipgrip"
-version = "0.6.12"
+version = "0.7.0"
 description = "Lightweight pip dependency resolver with deptree preview functionality based on the PubGrub algorithm"
 category = "main"
 optional = false
@@ -487,7 +487,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "a8ebab1134c34246e001cfdc20ebc5d0ff524378eb0b9a07c3762f1d6a40f62e"
+content-hash = "09392509010127d14e57d0e77e4aad8cd40c4d9f07f441c679a75cff91583788"
 
 [metadata.files]
 anytree = [
@@ -636,8 +636,8 @@ pathspec = [
     {file = "pathspec-0.9.0.tar.gz", hash = "sha256:e564499435a2673d586f6b2130bb5b95f04a3ba06f81b8f895b651a3c76aabb1"},
 ]
 pipgrip = [
-    {file = "pipgrip-0.6.12-py2.py3-none-any.whl", hash = "sha256:f544d2f61db1880ab749856d9ccd33981bf582c101ca5d092c282c9ca29e4e70"},
-    {file = "pipgrip-0.6.12.tar.gz", hash = "sha256:b29e48dd8a9a6e6be2b1f0c3bf1aafb2bd16d609169f43ef254b7503b70daaaa"},
+    {file = "pipgrip-0.7.0-py2.py3-none-any.whl", hash = "sha256:d07d03c0731aacd8a404f9c68fd486d91734f7df12e0c5c509b6ccb214008a93"},
+    {file = "pipgrip-0.7.0.tar.gz", hash = "sha256:52808acd8caaa0be04adbc783522e44a2ff84e3c64c9f473fa8aa14c4e4ac0ae"},
 ]
 pkginfo = [
     {file = "pkginfo-1.7.1-py2.py3-none-any.whl", hash = "sha256:37ecd857b47e5f55949c41ed061eb51a0bee97a87c969219d144c0e023982779"},
