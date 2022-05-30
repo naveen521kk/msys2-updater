@@ -17,7 +17,7 @@ rich = "^12.4.4"
 packaging = "^21.3"
 GitPython = "^3.1.27"
 johnnydep = "^1.11"
-pipgrip = "^0.7"
+pipgrip = "^0.8"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^22.3", allow-prereleases = true}
